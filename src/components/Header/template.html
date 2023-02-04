@@ -1,0 +1,73 @@
+<header class="bg-smoke-dark">
+  <div class="container flex items-center justify-between py-3">
+    <h1>
+      <a class="h1-text" href="#" title="Rent Ride">Rent Ride</a>
+    </h1>
+    <nav
+      :class="[burgerIsOpen ? 'translate-x-0' : '-translate-x-full']"
+      class="fixed left-0 top-0 z-10 h-screen w-[260px] gap-x-12 border-r-4 border-light-purple bg-smoke-dark transition-transform duration-500 lg:static lg:flex lg:h-auto lg:w-auto lg:translate-x-0 lg:border-0"
+    >
+      <div class="mx-4 mb-6 mt-14 flex items-center justify-between lg:hidden">
+        <a href="#">
+          <img
+            class="inline h-12 w-[72px]"
+            src="@/assets/images/logo.png"
+            alt=""
+          />
+        </a>
+        <a href="#"
+          ><i class="fa-solid fa-circle-user text-3xl text-light-white"></i
+        ></a>
+      </div>
+      <p>
+        <!-- 用 scale 的方法做出底線從中間延伸的動畫 -->
+        <a
+          href="#"
+          class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-20 lg:hover:text-orange-pink"
+        >
+          最新消息
+        </a>
+      </p>
+      <p>
+        <a
+          href="#"
+          class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-20 lg:hover:text-orange-pink"
+        >
+          我要租車
+        </a>
+      </p>
+      <p>
+        <a
+          href="#"
+          class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-20 lg:hover:text-orange-pink"
+        >
+          重機商城
+        </a>
+      </p>
+    </nav>
+    <button
+      type="button"
+      class="btn-clip relative hidden border border-light-purple px-6 py-4 before:absolute before:top-0 before:left-0 before:-z-10 before:block before:h-20 before:w-40 before:scale-x-0 before:bg-light-purple before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100 lg:block"
+    >
+      登入 / 註冊
+    </button>
+    <button
+      type="button"
+      class="relative h-9 w-10 rounded-[4px] border border-light-white lg:hidden"
+      @click.prevent="switchBurger"
+    >
+      <span
+        :class="[burgerIsOpen ? 'top-4' : 'top-[9px]'], {'rotate-45': burgerIsOpen}"
+        class="absolute left-[7px] h-2px w-6 bg-light-white transition-transform duration-300"
+      ></span>
+      <span
+        :class="{ 'opacity-0': burgerIsOpen}"
+        class="mx-auto block h-2px w-6 bg-light-white transition-opacity duration-300"
+      ></span>
+      <span
+        :class="[burgerIsOpen ? 'bottom-4' : 'bottom-[9px]'], {'-rotate-45': burgerIsOpen}"
+        class="absolute left-[7px] h-2px w-6 bg-light-white transition-transform duration-300"
+      ></span>
+    </button>
+  </div>
+</header>

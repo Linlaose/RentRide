@@ -1,0 +1,19 @@
+.banner-float-text {
+  -webkit-text-stroke: 3px #4636ab;
+}
+
+@media (min-width: 1024px) {
+  .adaptive-position {
+    left: calc(48px + ((100vw - 1024px) / 2));
+  }
+}
+@media (min-width: 1280px) {
+  .adaptive-position {
+    left: calc(60px + ((100vw - 1280px) / 2));
+  }
+}
+@media (min-width: 1536px) {
+  .adaptive-position {
+    left: calc(60px + ((100vw - 1536px) / 2));
+  }
+}
