@@ -1,0 +1,254 @@
+<section ref="box" class="">
+  <div
+    class="relative bg-cover lg:static lg:h-screen lg:w-screen lg:bg-[url('@/assets/images/top1-RS660.png')] lg:bg-center"
+    ref="top1"
+  >
+    <!-- Top 1 -->
+    <img
+      class="w-full lg:hidden"
+      src="@/assets/images/top1-RS660-mobile.png"
+      alt=""
+    />
+    <div class="container mt-6 h-full flex-col justify-center lg:mt-0 lg:flex">
+      <h2
+        class="absolute top-0 animate-pulse text-[#DD1900] lg:static"
+        ref="top1Intro"
+      >
+        <span class="text-42px lg:text-66px"> TOP </span>
+        <span class="text-66px lg:text-8xl">1</span>
+      </h2>
+      <div
+        class="w-49 flex-col items-center lg:mt-12 lg:flex lg:w-fit"
+        ref="top1Brand"
+      >
+        <img class="block" src="@/assets/images/brand-RS660.png" alt="" />
+        <img class="mt-2" src="@/assets/images/slogan-RS660.png" alt="" />
+      </div>
+      <div ref="top1Specs">
+        <div class="grid grid-cols-4 lg:grid-rows-2 2xl:grid-cols-8">
+          <div
+            class="col-span-4 mt-4 grid grid-cols-3 gap-3 rounded-lg bg-smoke-dark/50 p-2 text-center backdrop-blur-sm lg:col-span-2 lg:mt-8 2xl:col-span-3"
+          >
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/piston.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ innerWidth > 1024 ? tempSpecs.horsePower: top1.horsePower }}
+                PS</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Horse Power</span
+              >
+            </p>
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/turbo.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ innerWidth > 1024 ? tempSpecs.torque : top1.torque }}
+                Nm</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Torque</span
+              >
+            </p>
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/exhaust-pipe.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ innerWidth > 1024 ? tempSpecs.displacement :
+                top1.displacement }} cc</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Displacement</span
+              >
+            </p>
+          </div>
+          <div
+            class="col-span-4 text-end lg:col-span-2 lg:row-start-2 2xl:col-span-3"
+          >
+            <button type="button" class="btn-solid my-6 inline-block lg:mt-8">
+              Explore
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top 1 End -->
+  <div
+    class="relative bg-cover bg-[50%_75%] lg:h-screen lg:w-screen lg:bg-[url('@/assets/images/top2-Ninja400.png')]"
+    ref="top2"
+  >
+    <!-- Top 2 -->
+    <img
+      class="w-full lg:hidden"
+      src="@/assets/images/top2-Ninja400-mobile.png"
+      alt=""
+    />
+    <div class="container mt-6 h-full flex-col justify-center lg:mt-0 lg:flex">
+      <h2
+        class="absolute top-0 animate-pulse leading-none text-[#64C64C] lg:static"
+        ref="top2Intro"
+      >
+        <span class="text-42px lg:text-66px"> TOP </span>
+        <span class="text-66px lg:text-8xl">2</span>
+      </h2>
+      <div
+        class="w-49 flex-col items-center lg:mt-12 lg:flex lg:w-fit"
+        ref="top2Brand"
+      >
+        <img class="block" src="@/assets/images/brand-Ninja400.png" alt="" />
+      </div>
+      <div ref="top2Specs">
+        <div class="grid grid-cols-4 lg:grid-rows-2 2xl:grid-cols-8">
+          <div
+            class="col-span-4 mt-4 grid grid-cols-3 gap-3 rounded-lg bg-smoke-dark/50 p-2 text-center backdrop-blur-sm lg:col-span-2 lg:mt-8 2xl:col-span-3"
+          >
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/piston.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ top2.horsePower }} PS</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Horse Power</span
+              >
+            </p>
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/turbo.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ top2.torque }} Nm</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Torque</span
+              >
+            </p>
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/exhaust-pipe.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ top2.displacement }} cc</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Displacement</span
+              >
+            </p>
+          </div>
+          <div
+            class="col-span-4 text-end lg:col-span-2 lg:row-start-2 2xl:col-span-3"
+          >
+            <button type="button" class="btn-solid my-6 inline-block lg:mt-8">
+              Explore
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top 2 End -->
+  <div
+    class="relative bg-cover bg-[50%_85%] lg:h-screen lg:w-screen lg:bg-[url('@/assets/images/top3-R6.png')]"
+    ref="top3"
+  >
+    <!-- Top 3 -->
+    <img
+      class="w-full lg:hidden"
+      src="@/assets/images/top3-R6-mobile.png"
+      alt=""
+    />
+    <div
+      class="container mt-6 h-full flex-col justify-center lg:mt-0 lg:flex lg:items-end"
+    >
+      <div class="w-49 flex-col items-start lg:flex lg:w-fit">
+        <h2
+          class="absolute top-0 animate-pulse leading-none text-[#0433BF] lg:static"
+          ref="top3Intro"
+        >
+          <span class="text-42px lg:text-66px"> TOP </span>
+          <span class="text-66px lg:text-8xl">3</span>
+        </h2>
+        <div ref="top3Brand">
+          <img
+            class="block lg:mt-12"
+            src="@/assets/images/brand-R6.png"
+            alt=""
+          />
+          <img class="mt-2" src="@/assets/images/slogan-R6.png" alt="" />
+        </div>
+      </div>
+      <div ref="top3Specs">
+        <div class="grid grid-cols-4 lg:grid-rows-2 2xl:grid-cols-8">
+          <div
+            class="col-span-4 mt-4 grid grid-cols-3 gap-3 rounded-lg bg-smoke-dark/50 p-2 text-center backdrop-blur-sm lg:col-end-9 lg:mt-8"
+          >
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/piston.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ top3.horsePower }} PS</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Horse Power</span
+              >
+            </p>
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/turbo.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ top3.torque }} Nm</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Torque</span
+              >
+            </p>
+            <p class="col-span-1 py-2 lg:p-2">
+              <img
+                class="mx-auto h-10 w-10 lg:hidden"
+                src="@/assets/images/exhaust-pipe.png"
+                alt=""
+              />
+              <span class="mt-2 block text-base lg:mt-0 lg:text-32px"
+                >{{ top3.displacement }} cc</span
+              >
+              <span class="mt-2 hidden text-base lg:block lg:text-xl"
+                >Displacement</span
+              >
+            </p>
+          </div>
+          <div class="col-span-4 text-end lg:col-end-9 lg:row-start-2">
+            <button type="button" class="btn-solid my-6 inline-block lg:mt-8">
+              Explore
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top 3 End -->
+</section>
+<section style="width: 100vw; background-color: blue; height: 2000px"></section>

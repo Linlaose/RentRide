@@ -8,11 +8,205 @@
       <button type="button">
         <a
           href="./template.html"
-          class="btn-clip-solid block w-[152px] py-1 text-base hover:bg-smoke-dark sm:h-auto sm:w-49 sm:py-3 sm:text-xl"
+          class="btn-solid-clip block w-[152px] text-base hover:bg-smoke-dark sm:h-auto sm:w-49 sm:text-xl"
         >
-          Get more
+          更多消息
         </a>
       </button>
     </div>
+    <ul v-if="innerWidth >= 1024" class="mt-15 grid grid-cols-12 gap-8">
+      <!-- 筆電以上才有 kinesis 的效果 -->
+      <kinesis-container
+        tag="li"
+        class="group relative col-span-4 text-smoke-dark"
+      >
+        <kinesis-element
+          class="group relative z-10 bg-light-white"
+          :strength="15"
+          type="depth"
+        >
+          <div>
+            <img class="w-full" src="@/assets/images/news1.png" alt="news1" />
+          </div>
+          <div class="card-body">
+            <h5>聖誕假期輕鬆遊</h5>
+            <p class="pt-3">
+              假期出遊，讓重機成為您的最佳選擇！我們提供最新、最優秀的重機租賃服務，讓您暢遊在各種路況和風景中，享受獨一無二的騎行體驗！
+            </p>
+            <div class="text-end">
+              <button type="button" class="mt-4 inline-block w-36">
+                <a
+                  class="btn-solid-clip group-hover:btn-solid-clip-group-hover block py-2 text-lg text-light-white"
+                  href="./template.html"
+                >
+                  了解更多
+                </a>
+              </button>
+            </div>
+          </div>
+          <a href="./template.html" class="absolute inset-0"></a>
+        </kinesis-element>
+        <kinesis-element
+          class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"
+          :strength="15"
+          type="depth"
+        ></kinesis-element>
+      </kinesis-container>
+      <kinesis-container
+        tag="li"
+        class="group relative col-span-4 text-smoke-dark"
+      >
+        <kinesis-element
+          class="group relative z-10 bg-light-white"
+          :strength="15"
+          type="depth"
+        >
+          <div>
+            <img class="w-full" src="@/assets/images/news2.png" alt="news1" />
+          </div>
+          <div class="card-body">
+            <h5>促銷活動</h5>
+            <p class="pt-3">
+              在這個秋季，與我們一起探索美麗的風景和驚險的路線！現在預訂，我們將為您提供最優惠的價格和最優秀的服務！不要錯過這個難得的機會！
+            </p>
+            <div class="text-end">
+              <button type="button" class="mt-4 inline-block w-36">
+                <a
+                  class="btn-solid-clip group-hover:btn-solid-clip-group-hover block py-2 text-lg text-light-white"
+                  href="./template.html"
+                >
+                  了解更多
+                </a>
+              </button>
+            </div>
+          </div>
+          <a href="./template.html" class="absolute inset-0"></a>
+        </kinesis-element>
+        <kinesis-element
+          class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"
+          :strength="15"
+          type="depth"
+        ></kinesis-element>
+      </kinesis-container>
+      <kinesis-container
+        tag="li"
+        class="group relative col-span-4 text-smoke-dark"
+      >
+        <kinesis-element
+          class="group relative z-10 bg-light-white"
+          :strength="15"
+          type="depth"
+        >
+          <div>
+            <img class="w-full" src="@/assets/images/news3.png" alt="news1" />
+          </div>
+          <div class="card-body">
+            <h5>結伴租車享優惠</h5>
+            <p class="pt-3">
+              享受與友人一起探索美景的樂趣！現在預訂，我們為您提供更優惠的價格和更好的服務！快邀請您的朋友加入，開啟一場驚險之旅！
+            </p>
+            <div class="text-end">
+              <button type="button" class="mt-4 inline-block w-36">
+                <a
+                  class="btn-solid-clip group-hover:btn-solid-clip-group-hover block py-2 text-lg text-light-white"
+                  href="./template.html"
+                >
+                  了解更多
+                </a>
+              </button>
+            </div>
+          </div>
+          <a href="./template.html" class="absolute inset-0"></a>
+        </kinesis-element>
+        <kinesis-element
+          class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"
+          :strength="15"
+          type="depth"
+        ></kinesis-element>
+      </kinesis-container>
+    </ul>
+    <ul v-else class="mt-6 grid grid-cols-4 gap-6">
+      <li class="group relative col-span-4 text-smoke-dark">
+        <div class="group relative z-10 bg-light-white">
+          <div>
+            <img class="w-full" src="@/assets/images/news1.png" alt="news1" />
+          </div>
+          <div class="card-body">
+            <h5>聖誕假期輕鬆遊</h5>
+            <p class="pt-3">
+              假期出遊，讓重機成為您的最佳選擇！我們提供最新、最優秀的重機租賃服務，讓您暢遊在各種路況和風景中，享受獨一無二的騎行體驗！
+            </p>
+            <div class="text-end">
+              <button type="button" class="mt-4 inline-block w-36">
+                <a
+                  class="btn-solid-clip block py-2 text-lg text-light-white"
+                  href="./template.html"
+                >
+                  了解更多
+                </a>
+              </button>
+            </div>
+          </div>
+          <a href="./template.html" class="absolute inset-0"></a>
+        </div>
+        <div
+          class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"
+        ></div>
+      </li>
+      <li class="group relative col-span-4 text-smoke-dark">
+        <div class="group relative z-10 bg-light-white">
+          <div>
+            <img class="w-full" src="@/assets/images/news2.png" alt="news1" />
+          </div>
+          <div class="card-body">
+            <h5>促銷活動</h5>
+            <p class="pt-3">
+              在這個秋季，與我們一起探索美麗的風景和驚險的路線！現在預訂，我們將為您提供最優惠的價格和最優秀的服務！不要錯過這個難得的機會！
+            </p>
+            <div class="text-end">
+              <button type="button" class="mt-4 inline-block w-36">
+                <a
+                  class="btn-solid-clip block py-2 text-lg text-light-white"
+                  href="./template.html"
+                >
+                  了解更多
+                </a>
+              </button>
+            </div>
+          </div>
+          <a href="./template.html" class="absolute inset-0"></a>
+        </div>
+        <div
+          class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"
+        ></div>
+      </li>
+      <li class="group relative col-span-4 text-smoke-dark">
+        <div class="group relative z-10 bg-light-white">
+          <div>
+            <img class="w-full" src="@/assets/images/news3.png" alt="news1" />
+          </div>
+          <div class="card-body">
+            <h5>結伴租車享優惠</h5>
+            <p class="pt-3">
+              享受與友人一起探索美景的樂趣！現在預訂，我們為您提供更優惠的價格和更好的服務！快邀請您的朋友加入，開啟一場驚險之旅！
+            </p>
+            <div class="text-end">
+              <button type="button" class="mt-4 inline-block w-36">
+                <a
+                  class="btn-solid-clip block py-2 text-lg text-light-white"
+                  href="./template.html"
+                >
+                  了解更多
+                </a>
+              </button>
+            </div>
+          </div>
+          <a href="./template.html" class="absolute inset-0"></a>
+        </div>
+        <div
+          class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"
+        ></div>
+      </li>
+    </ul>
   </div>
 </section>

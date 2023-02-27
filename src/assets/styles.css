@@ -1,46 +1,73 @@
-@import url("https://fonts.googleapis.com/css2?family=Bakbak+One&family=Noto+Sans+TC:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Noto+Sans+TC:wght@400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 @layer base {
   body {
     @apply bg-smoke-dark bg-gradient-to-r from-light-black to-smoke-dark text-light-white;
-    font-family: "Bakbak One", "Noto Sans TC", -apple-system, BlinkMacSystemFont,
-      "Segoe UI", "Microsoft JhengHei", "Helvetica Neue", monospace, Arial,
+    font-family: 'Bakbak One', 'Noto Sans TC', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', 'Microsoft JhengHei', 'Helvetica Neue', monospace, Arial,
       sans-serif;
   }
-  button,
-  p {
+  button {
     @apply text-xl;
   }
   h3 {
     @apply text-[42px];
   }
+  h5 {
+    @apply text-2xl;
+  }
 }
 
 @layer components {
-  .btn-clip-solid {
-    @apply relative  overflow-hidden border-2 border-transparent bg-light-purple transition-all duration-300;
+  .btn-solid-clip {
+    @apply relative  overflow-hidden border-2 border-transparent bg-light-purple py-1 transition-all duration-300
+sm:py-3;
     clip-path: polygon(20% 0%, 100% 0%, 100% 65%, 80% 100%, 0% 100%, 0% 35%);
   }
-  .btn-clip-solid:hover {
-    @apply border-2 border-light-purple bg-light-black;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
-  }
-  .btn-clip-solid:active {
-    @apply border-2 border-light-purple bg-light-black;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
-  }
-  .btn-clip-solid::after {
+  .btn-solid-clip::after {
     @apply absolute top-[20%] -left-[95%] h-20 w-60 rotate-45  bg-light-white/[.08] opacity-0 content-[''];
     transition: left 1.5s, top 1.5s, opacity 150ms ease;
   }
-  .btn-clip-solid:hover::after {
+  .btn-solid-clip:hover {
+    @apply border-2 border-light-purple bg-light-black;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+  }
+  .btn-solid-clip:hover::after {
     @apply left-full opacity-100;
   }
-  .btn-clip-solid:active::after {
+  .btn-solid-clip:active {
+    @apply border-2 border-light-purple bg-light-black;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+  }
+  .btn-solid-clip:active::after {
     @apply left-full opacity-100;
+  }
+
+  .card-body {
+    @apply bg-light-white p-3 md:p-4;
+  }
+
+  .btn-solid {
+    @apply relative z-10 border-2 border-light-purple bg-smoke-dark py-3 px-9 text-xl before:hover:scale-x-100;
+  }
+  .btn-solid::before {
+    @apply absolute top-0 left-0 -z-10 block h-full w-full scale-x-0 bg-light-purple transition-transform duration-300 content-[''];
+  }
+}
+
+@layer utilities {
+  @variants group-hover {
+    .btn-solid-clip-group-hover {
+      @apply border-2 border-light-purple bg-light-black;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+    }
+    .btn-solid-clip-group-hover::after {
+      @apply left-full opacity-100;
+    }
   }
 }

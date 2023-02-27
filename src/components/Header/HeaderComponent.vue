@@ -1,14 +1,13 @@
 <script>
-import HeaderStore from "@/stores/HeaderStore.js";
-
-import { mapState, mapActions } from "pinia";
+import { mapState, mapActions } from 'pinia';
+import HeaderStore from '@/stores/HeaderStore';
 
 export default {
   computed: {
-    ...mapState(HeaderStore, ["burgerIsOpen"]),
+    ...mapState(HeaderStore, ['burgerIsOpen']),
   },
   methods: {
-    ...mapActions(HeaderStore, ["switchBurger"]),
+    ...mapActions(HeaderStore, ['switchBurger']),
   },
 };
 </script>
