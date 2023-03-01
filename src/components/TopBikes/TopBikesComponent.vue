@@ -149,7 +149,7 @@ export default {
           start: 'top top',
           end: 'bottom 100%',
           scrub: 3,
-          // markers: true,
+          markers: true,
           pin: true,
           pinSpacing: false,
         });
@@ -179,7 +179,7 @@ export default {
     this.scroller();
     setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 500);
+    }, 1000);
     window.addEventListener('scroll', this.getScrollHeight);
   },
   watch: {

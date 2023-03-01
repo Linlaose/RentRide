@@ -3,7 +3,29 @@ export default {
   data() {
     return {
       innerWidth: window.innerWidth,
+      cors: 'https://cors-anywhere.herokuapp.com/',
+      VITE_URL: import.meta.env.VITE_URL,
+      VITE_PATH: 'news',
+      news: [],
     };
+  },
+  methods: {
+    getNews(apiUrl, apiPath) {
+      const url = `${apiUrl}/${apiPath}`;
+
+      this.$http
+        .get(url)
+        .then((res) => {
+          const { data } = res;
+          this.news = data;
+        })
+        .catch(() => {
+          alert('Oops ! 有點狀況');
+        });
+    },
+  },
+  mounted() {
+    this.getNews(this.VITE_URL, this.VITE_PATH);
   },
 };
 </script>

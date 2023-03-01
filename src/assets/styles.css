@@ -58,16 +58,20 @@ sm:py-3;
   .btn-solid::before {
     @apply absolute top-0 left-0 -z-10 block h-full w-full scale-x-0 bg-light-purple transition-transform duration-300 content-[''];
   }
+
+  .position-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
-@layer utilities {
-  @variants group-hover {
-    .btn-solid-clip-group-hover {
-      @apply border-2 border-light-purple bg-light-black;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
-    }
-    .btn-solid-clip-group-hover::after {
-      @apply left-full opacity-100;
-    }
+@variants group-hover {
+  .btn-solid-clip-group-hover {
+    @apply border-2 border-light-purple bg-light-black;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+  }
+  .btn-solid-clip-group-hover::after {
+    @apply left-full opacity-100;
   }
 }

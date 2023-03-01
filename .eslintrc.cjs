@@ -27,6 +27,7 @@ module.exports = {
       },
     ],
     'no-console': 'off',
+    'no-alert': 'off',
   },
   settings: {
     'import/resolver': {
@@ -41,6 +42,7 @@ module.exports = {
       '@rushstack/eslint-patch/modern-module-resolution',
       'axios',
       'gsap',
+      'swiper',
     ],
   },
 };

@@ -28,6 +28,7 @@ module.exports = {
       },
       spacing: {
         15: '3.75rem',
+        '55%': '55%',
       },
       fontSize: {
         '32px': '2rem',
@@ -36,6 +37,7 @@ module.exports = {
       },
       colors: {
         'smoke-dark': '#0D0D0D',
+        'light-gray': '#D9D9D9',
         'light-black': '#1C1C1E',
         'light-purple': '#4636AB',
         'light-white': '#F2F2F2',
