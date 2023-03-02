@@ -12,7 +12,7 @@
           href="./template.html"
           class="btn-solid-clip block w-[152px] text-base hover:bg-smoke-dark sm:h-auto sm:w-49 sm:text-xl"
         >
-          更多選擇
+          更多車款
         </a>
       </button>
     </div>
@@ -33,18 +33,18 @@
         data-swiper="rentBikeSwiper"
       >
         <!-- <swiper-slide v-for="n in 9" :key="n">Slide {{ n }}</swiper-slide> -->
-        <swiper-slide class="group bg-light-gray p-4">
-          <div class="relative flex h-full flex-col justify-between">
+        <swiper-slide class="group bg-light-gray p-4" v-for="bike in bikes">
+          <div class="relative flex h-full flex-col justify-between lg:z-20">
             <p class="word-spacing-4 text-base text-smoke-dark/40">
-              2018 - Manual - Petrol - 200cc
+              {{bike.year}} - Manual - Petrol - {{bike.displacement}}
             </p>
             <div
               class="absolute left-0 right-0 bottom-0 text-2xl transition-all duration-300 lg:group-hover:bottom-4 lg:group-hover:opacity-0"
             >
-              <p class="text-start">Ninja 636</p>
+              <p class="text-start">{{bike.model}}</p>
               <p class="flex justify-between">
-                <span class="block">5500 RPM</span>
-                <span class="block">Grade B</span>
+                <span class="block">{{bike.maxRPM}} RPM</span>
+                <span class="block">Grade {{bike.grade}}</span>
               </p>
             </div>
             <div
@@ -68,36 +68,19 @@
             </div>
           </div>
           <div
-            class="absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 sm:w-[80%]"
+            class="absolute top-1/2 left-1/2 z-10 w-full -translate-x-1/2 -translate-y-1/2 sm:w-[80%]"
           >
-            <img src="@/assets/images/card-ninja 636.png" />
+            <img :src="bike.imgUrl" />
           </div>
           <div
-            class="absolute top-55% left-1/2 -z-10 w-full -translate-x-1/2 -translate-y-1/2 px-4"
+            class="absolute top-55% left-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-4"
           >
             <img src="@/assets/images/triangle.svg" />
           </div>
-          <a href="#" class="absolute inset-0"></a>
+          <a href="#" class="absolute inset-0 z-10 lg:z-auto"></a>
         </swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide>
-        <swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide>
-        <swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide>
-        <swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide>
-        <swiper-slide>Slide 9</swiper-slide>
         <div class="absolute bottom-0 right-[68px] z-10 h-6 w-1 bg-white"></div>
       </swiper>
     </div>
-    <!-- <div>
-      <button
-        class="after:block after:h-6 after:w-1 after:bg-white after:content-['']"
-        type="button"
-        @click="test"
-      >
-        下一頁
-      </button>
-    </div> -->
   </div>
 </section>
