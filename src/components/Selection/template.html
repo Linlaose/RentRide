@@ -33,7 +33,10 @@
         data-swiper="rentBikeSwiper"
       >
         <!-- <swiper-slide v-for="n in 9" :key="n">Slide {{ n }}</swiper-slide> -->
-        <swiper-slide class="group bg-light-gray p-4" v-for="bike in bikes">
+        <swiper-slide
+          class="group bg-light-gray p-4 after:h-full after:w-full after:bg-yellow-300 after:content-['']"
+          v-for="bike in bikes"
+        >
           <div class="relative flex h-full flex-col justify-between lg:z-20">
             <p class="word-spacing-4 text-base text-smoke-dark/40">
               {{bike.year}} - Manual - Petrol - {{bike.displacement}}
