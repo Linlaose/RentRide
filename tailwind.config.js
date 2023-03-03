@@ -45,13 +45,7 @@ module.exports = {
         'orange-pink': '#F26E50',
       },
       animation: {
-        'line-middle': 'line-middle-each-side 3s ease-in-out infinite',
-      },
-      keyframes: {
-        'line-middle-each-side': {
-          '0%': { 'background-color': 'red' },
-          '100%': { 'background-color': 'yellow' },
-        },
+        'spin-slow': 'spin 2s linear infinite',
       },
       transitionProperty: {
         width: 'width',

@@ -156,6 +156,7 @@ export default {
       });
     },
     cumulateData(name) {
+      // 用百分比累加
       if (name === 'RS660') {
         setTimeout(() => {
           if (this.tempSpecs.displacement < 660) {
@@ -177,6 +178,7 @@ export default {
   },
   mounted() {
     this.scroller();
+    // 寫死卡片圖高度，或是skeleton loading 套用高度
     setTimeout(() => {
       ScrollTrigger.refresh();
     }, 1000);
