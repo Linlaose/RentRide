@@ -1,15 +1,16 @@
 <section
-  :class="{'opacity-0': loadingPercent >= 100, '-z-10': loadingPercent >= 100}"
-  class="fixed inset-0 z-30 bg-smoke-dark transition-all duration-1000"
+  :class="[{'opacity-0': loadingPercent >= 100}, loadingPercent >= 100 ? '-z-10' : 'z-30']"
+  class="fixed inset-0 bg-smoke-dark transition-all duration-1000"
 >
   <div class="position-center absolute text-center text-4xl">
     <div
       class="flex h-60 w-60 animate-spin-slow items-center justify-center rounded-full border-8 border-orange-400 border-t-white/10"
     ></div>
-    <p class="position-center absolute">{{loadingPercent}} %</p>
+    <p class="position-center absolute select-none">{{loadingPercent}} %</p>
   </div>
   <p
-    class="absolute top-2/3 left-1/2 -translate-x-[45%] -translate-y-1/2 text-center text-3xl"
+    data-text-preloader="Rent Ride"
+    class="absolute top-2/3 left-1/2 -translate-x-[45%] -translate-y-1/2 select-none text-center text-3xl tracking-[5px] lg:tracking-[14px]"
   >
     Rent Ride
   </p>

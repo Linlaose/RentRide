@@ -7,11 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 export default {
   data() {
     return {
-      horsePower: 0,
-      torque: 0,
-      displacement: 0,
-      scrollTop: 0,
-      innerWidth: window.innerWidth,
       top1: {
         name: 'RS660',
         horsePower: 100,
@@ -29,11 +24,6 @@ export default {
         horsePower: 120,
         torque: 62,
         displacement: 600,
-      },
-      tempSpecs: {
-        horsePower: 0,
-        torque: 0,
-        displacement: 0,
       },
     };
   },
@@ -155,44 +145,13 @@ export default {
         });
       });
     },
-    cumulateData(name) {
-      // 用百分比累加
-      if (name === 'RS660') {
-        setTimeout(() => {
-          if (this.tempSpecs.displacement < 660) {
-            if (this.tempSpecs.horsePower < 100) {
-              this.tempSpecs.horsePower += 1;
-            }
-            if (this.tempSpecs.torque < 67) {
-              this.tempSpecs.torque += 1;
-            }
-            this.tempSpecs.displacement += 6;
-            this.cumulateData(name);
-          }
-        }, 30);
-      }
-    },
-    getScrollHeight() {
-      this.scrollTop = document.documentElement.scrollTop;
-    },
   },
   mounted() {
     this.scroller();
-    // 寫死卡片圖高度，或是skeleton loading 套用高度
     setTimeout(() => {
       ScrollTrigger.refresh();
     }, 1000);
     window.addEventListener('scroll', this.getScrollHeight);
-  },
-  watch: {
-    scrollTop(newVal) {
-      if (newVal > 2100 && this.innerWidth > 1024) {
-        const { name } = this.top1;
-        this.tempSpecs = { horsePower: 0, torque: 0, displacement: 0 };
-        this.cumulateData(name);
-        window.removeEventListener('scroll', this.getScrollHeight);
-      }
-    },
   },
 };
 </script>
