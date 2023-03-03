@@ -15,6 +15,7 @@ export default {
       // );
       // this.loadTime = (parseInt(estimatedTime / 1000, 10) % 60) * 100;
       // window.performance.timing 已經要被淘汰，所以用 PerformanceNavigationTiming
+
       const { loadEventEnd } = performance.getEntriesByType('navigation')[0];
       const estimatedTime = Number(loadEventEnd.toFixed());
 
