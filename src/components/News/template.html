@@ -23,18 +23,17 @@
         :key="newsItem.id"
       >
         <kinesis-element
-          class="group relative z-10 bg-light-white"
-          :strength="15"
+          class="group relative z-10 flex h-full flex-col bg-light-white"
           type="depth"
         >
           <div>
             <img class="w-full" :src="newsItem.imgUrl" />
           </div>
-          <div class="card-body">
+          <div class="card-body flex h-full flex-col">
             <h5>{{ newsItem.title }}</h5>
             <p class="pt-3">{{ newsItem.description }}</p>
-            <div class="text-end">
-              <button type="button" class="mt-4 inline-block w-36">
+            <div class="mt-auto text-end">
+              <button type="button" class="inline-block w-36">
                 <a
                   class="btn-solid-clip group-hover:btn-solid-clip-group-hover block py-2 text-lg text-light-white"
                   href="./template.html"

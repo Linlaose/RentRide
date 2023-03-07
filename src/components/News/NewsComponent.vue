@@ -17,7 +17,8 @@ export default {
         .get(url)
         .then((res) => {
           const { data } = res;
-          this.news = data;
+          const index = data.length - 3;
+          this.news = data.slice(index);
         })
         .catch(() => {
           alert('Oops ! 有點狀況');

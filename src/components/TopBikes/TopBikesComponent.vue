@@ -139,7 +139,6 @@ export default {
           start: 'top top',
           end: 'bottom 100%',
           scrub: 3,
-          markers: true,
           pin: true,
           pinSpacing: false,
         });
