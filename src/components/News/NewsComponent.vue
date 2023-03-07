@@ -1,5 +1,10 @@
 <script>
+import { RouterLink } from 'vue-router';
+
 export default {
+  components: {
+    RouterLink,
+  },
   data() {
     return {
       innerWidth: window.innerWidth,
@@ -23,6 +28,9 @@ export default {
         .catch(() => {
           alert('Oops ! 有點狀況');
         });
+    },
+    testId(id) {
+      console.log(id);
     },
   },
   mounted() {

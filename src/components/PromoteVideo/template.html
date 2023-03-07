@@ -18,11 +18,18 @@
       除了租賃，還有待售車款等你牽走哦！
     </h2>
     <div class="mt-8 flex flex-col items-center gap-6 lg:mt-20 lg:flex-row">
-      <button class="btn-solid-clip w-49 py-4">我要租車</button>
-      <button
-        class="btn-solid-clip w-49 bg-orange-pink py-4 hover:border-orange-pink"
-      >
-        預約賞車
+      <button>
+        <router-link to="/rent" class="btn-solid-clip block w-49 py-4">
+          我要租車
+        </router-link>
+      </button>
+      <button>
+        <router-link
+          to="/shop"
+          class="btn-solid-clip block w-49 bg-orange-pink py-4 hover:border-orange-pink"
+        >
+          預約賞車
+        </router-link>
       </button>
     </div>
   </div>

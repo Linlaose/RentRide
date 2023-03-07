@@ -1,4 +1,5 @@
 <script>
+import { RouterLink } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Grid } from 'swiper';
 
@@ -10,6 +11,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    RouterLink,
   },
   data() {
     return {

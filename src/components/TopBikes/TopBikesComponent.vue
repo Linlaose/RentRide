@@ -1,10 +1,14 @@
 <script>
+import { RouterLink } from 'vue-router';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
+  components: {
+    RouterLink,
+  },
   data() {
     return {
       top1: {

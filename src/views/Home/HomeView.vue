@@ -1,13 +1,18 @@
 <script>
-import HeaderComponent from '@/components/Header/HeaderComponent.vue';
-import FooterComponent from '@/components/Footer/FooterComponent.vue';
-import PageLoadingComponent from '@/components/PageLoading/PageLoadingComponent.vue';
+import BannerComponent from '@/components/Banner/BannerComponent.vue';
+import NewsComponent from '@/components/News/NewsComponent.vue';
+import TopBikesComponent from '@/components/TopBikes/TopBikesComponent.vue';
+import SelectionComponent from '@/components/Selection/SelectionComponent.vue';
+import PromoteVideoComponent from '@/components/PromoteVideo/PromoteVideoComponent.vue';
 
 export default {
+  name: 'HomeView',
   components: {
-    HeaderComponent,
-    FooterComponent,
-    PageLoadingComponent,
+    BannerComponent,
+    NewsComponent,
+    TopBikesComponent,
+    SelectionComponent,
+    PromoteVideoComponent,
   },
 };
 </script>

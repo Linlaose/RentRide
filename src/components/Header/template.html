@@ -1,7 +1,9 @@
 <header class="bg-smoke-dark">
   <div class="container flex items-center justify-between py-3">
     <h1>
-      <a class="h1-text" href="#" title="Rent Ride">Rent Ride</a>
+      <router-link class="h1-text" to="/" title="Rent Ride"
+        >Rent Ride</router-link
+      >
     </h1>
     <nav
       :class="[burgerIsOpen ? 'translate-x-0' : '-translate-x-full']"
@@ -21,28 +23,28 @@
       </div>
       <p>
         <!-- 用 scale 的方法做出底線從中間延伸的動畫 -->
-        <a
-          href="#"
+        <router-link
+          to="/news"
           class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:m-0 lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-16 lg:hover:text-orange-pink"
         >
           最新消息
-        </a>
+        </router-link>
       </p>
       <p>
-        <a
-          href="#"
+        <router-link
+          to="/rent"
           class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:m-0 lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-16 lg:hover:text-orange-pink"
         >
           我要租車
-        </a>
+        </router-link>
       </p>
       <p>
-        <a
-          href="#"
+        <router-link
+          to="/shop"
           class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:m-0 lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-16 lg:hover:text-orange-pink"
         >
           重機商城
-        </a>
+        </router-link>
       </p>
     </nav>
     <button

@@ -1,8 +1,12 @@
 <script>
+import { RouterLink } from 'vue-router';
 import { mapState, mapActions } from 'pinia';
 import HeaderStore from '@/stores/HeaderStore';
 
 export default {
+  components: {
+    RouterLink,
+  },
   computed: {
     ...mapState(HeaderStore, ['burgerIsOpen']),
   },

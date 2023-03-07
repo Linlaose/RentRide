@@ -6,12 +6,12 @@
         <span class="hidden text-2xl text-orange-pink md:inline">News</span>
       </h3>
       <button type="button">
-        <a
-          href="./template.html"
+        <router-link
+          to="/news"
           class="btn-solid-clip block w-[152px] text-base hover:bg-smoke-dark sm:h-auto sm:w-49 sm:text-xl"
         >
           更多消息
-        </a>
+        </router-link>
       </button>
     </div>
     <ul v-if="innerWidth >= 1024" class="mt-15 grid grid-cols-12 gap-8">
@@ -43,7 +43,11 @@
               </button>
             </div>
           </div>
-          <a href="./template.html" class="absolute inset-0"></a>
+          <a
+            href="./template.html"
+            class="absolute inset-0"
+            @click.prevent="testId(newsItem.title)"
+          ></a>
         </kinesis-element>
         <kinesis-element
           class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"
