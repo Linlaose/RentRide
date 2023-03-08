@@ -43,6 +43,7 @@ module.exports = {
       'axios',
       'gsap',
       'swiper',
+      'daisyui',
     ],
   },
 };

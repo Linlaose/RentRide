@@ -31,6 +31,7 @@ module.exports = {
         '55%': '55%',
       },
       fontSize: {
+        '6px': '0.375rem',
         '32px': '2rem',
         '42px': '2.625rem',
         '66px': '4.125rem',
@@ -60,5 +61,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  // eslint-disable-next-line global-require
+  plugins: [require('daisyui')],
 };

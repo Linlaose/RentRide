@@ -1,5 +1,7 @@
 # Vue side project
 
+2023/03/07
+
 - preloader 在 safari 上，loading 時會停止旋轉
 
 - 首頁 Selection 區塊

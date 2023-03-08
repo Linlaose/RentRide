@@ -1,0 +1,14 @@
+<section class="container mt-4 lg:mt-15">
+  <ul class="flex border-b-[#808080] text-center lg:border-b">
+    <li v-for="title in titles" :key="title" class="w-1/2 lg:w-auto">
+      <button
+        :class="[selectedTag === title ? 'text-light-white' : 'text-[#808080]', selectedTag === title ? 'after:scale-100' : 'after:scale-0']"
+        class="relative w-full border-b-[#808080] p-1 after:absolute after:-bottom-px after:left-0 after:h-px after:w-full after:bg-white after:transition-all after:duration-300 after:content-[''] hover:text-light-white after:hover:scale-100 lg:w-auto lg:p-0 lg:px-12 lg:py-4 lg:text-32px lg:leading-none"
+        type="button"
+        @click.prevent="selectItem(title)"
+      >
+        {{ title }}
+      </button>
+    </li>
+  </ul>
+</section>
