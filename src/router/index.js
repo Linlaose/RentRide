@@ -12,13 +12,11 @@ const router = createRouter({
       path: '/news',
       name: 'news',
       component: () => import('@/views/News/NewsView.vue'),
-      children: [
-        {
-          path: 'news/:id',
-          name: 'articleNews',
-          component: () => import('@/views/ArticleNews/ArticleNewsView.vue'),
-        },
-      ],
+    },
+    {
+      path: '/news/:id',
+      name: 'articleNews',
+      component: () => import('@/views/ArticleNews/ArticleNewsView.vue'),
     },
     {
       path: '/rent',

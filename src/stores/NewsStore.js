@@ -9,6 +9,7 @@ export default defineStore('newsStore', {
     VITE_URL: import.meta.env.VITE_URL,
     VITE_PATH: 'news',
     news: [],
+    article: {},
   }),
   getters: {
     selectedTag({ selected }) {
@@ -43,6 +44,24 @@ export default defineStore('newsStore', {
             obj.created_at = formattedDate;
             this.news.push(obj);
           });
+          this.news.reverse();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    getArticle(id) {
+      const url = `${this.VITE_URL}/${this.VITE_PATH}/${id}`;
+
+      axios
+        .get(url)
+        .then((res) => {
+          const { data } = res;
+          this.article = data;
+          this.article.created_at = format(
+            new Date(this.article.created_at),
+            'yyyy/MM/dd'
+          );
         })
         .catch((err) => {
           console.log(err);

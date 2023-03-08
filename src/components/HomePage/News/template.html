@@ -36,18 +36,17 @@
               <button type="button" class="inline-block w-36">
                 <a
                   class="btn-solid-clip group-hover:btn-solid-clip-group-hover block py-2 text-lg text-light-white"
-                  href="./template.html"
                 >
                   了解更多
                 </a>
               </button>
             </div>
           </div>
-          <a
-            href="./template.html"
+          <router-link
+            :to="`/news/${newsItem.id}`"
             class="absolute inset-0"
             @click.prevent="testId(newsItem.title)"
-          ></a>
+          ></router-link>
         </kinesis-element>
         <kinesis-element
           class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"

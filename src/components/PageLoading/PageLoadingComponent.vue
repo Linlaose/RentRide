@@ -25,7 +25,7 @@ export default {
     doProgress() {
       const step = this.loadTime / 100;
       this.interval = setInterval(() => {
-        this.loadingPercent += 2;
+        this.loadingPercent += 4;
       }, step);
     },
   },

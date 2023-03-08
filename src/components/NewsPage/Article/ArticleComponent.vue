@@ -10,9 +10,7 @@ export default {
     ...mapActions(NewsStore, ['getArticle']),
   },
   mounted() {
-    if (this.$route.params.id) {
-      this.getArticle(this.$route.params.id);
-    }
+    this.getArticle(this.$route.params.id);
   },
 };
 </script>

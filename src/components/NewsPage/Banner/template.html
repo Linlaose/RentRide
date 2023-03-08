@@ -2,11 +2,28 @@
   <img src="@/assets/images/page-title-bg.jpg" />
   <nav class="position-center container absolute">
     <ol class="flex items-center gap-3 text-base lg:text-xl">
-      <li>首頁</li>
-      <i class="fa-solid fa-circle text-6px text-orange-pink"></i>
-      <li class="text-orange-pink">最新消息</li>
+      <li>
+        <router-link to="/">首頁</router-link>
+      </li>
+      <li class="flex items-center gap-3">
+        <i class="fa-solid fa-circle text-6px text-orange-pink"></i>
+        <div class="text-orange-pink">
+          <router-link to="/news" v-if="$route.params.id">最新消息</router-link>
+          <p v-else>最新消息</p>
+        </div>
+      </li>
+      <li v-if="$route.params.id" class="flex items-center gap-3">
+        <i class="fa-solid fa-circle text-6px text-orange-pink"></i>
+        <div class="text-orange-pink">{{ article.title }}</div>
+      </li>
     </ol>
-    <h2 class="hidden text-orange-pink lg:mt-8 lg:block lg:text-66px">
+    <h2
+      v-if="$route.params.id"
+      class="hidden text-orange-pink lg:mt-8 lg:block lg:text-66px"
+    >
+      {{article.title}}
+    </h2>
+    <h2 v-else class="hidden text-orange-pink lg:mt-8 lg:block lg:text-66px">
       最新消息
     </h2>
   </nav>
