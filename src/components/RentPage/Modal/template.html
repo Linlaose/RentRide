@@ -1,0 +1,80 @@
+<input type="checkbox" id="rent-modal" class="modal-toggle" />
+<div class="modal">
+  <div
+    class="modal-box flex min-h-[500px] max-w-7xl flex-col justify-between px-0 pt-0"
+  >
+    <div
+      class="flex items-center justify-between bg-light-purple p-3 text-2xl text-light-white lg:py-4 lg:px-8"
+    >
+      <h2>{{tempBike.year}} {{tempBike.model}} - {{tempBike.grade}} 級車</h2>
+      <label for="rent-modal" class="btn-primary btn text-2xl">&#x2715;</label>
+    </div>
+    <div class="grid grid-cols-4 p-3 lg:grid-cols-12 lg:gap-6 lg:py-4 lg:px-6">
+      <img class="col-span-4 lg:col-span-6" :src="tempBike.imgUrl" alt="" />
+      <table class="font-sans-tc col-span-4 lg:col-span-6">
+        <tbody class="text-smoke-dark">
+          <tr>
+            <th>品牌</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.make}}</td>
+          </tr>
+          <tr>
+            <th>車款</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.model}}</td>
+          </tr>
+          <tr>
+            <th>最大馬力</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.horsepower}}</td>
+          </tr>
+          <tr>
+            <th>最大扭力</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.torque}}</td>
+          </tr>
+          <tr>
+            <th>引擎型式</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.engine}}</td>
+          </tr>
+          <tr>
+            <th>缸徑 X 行程</th>
+            <td class="pl-2 lg:pl-0">
+              {{tempBike.bore}} X {{tempBike.stroke}}
+            </td>
+          </tr>
+          <tr>
+            <th>壓縮比</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.compression_ratio}}</td>
+          </tr>
+          <tr>
+            <th>傳動方式</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.transmission}}</td>
+          </tr>
+          <tr>
+            <th>座高</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.seat_height}}</td>
+          </tr>
+          <tr>
+            <th>油箱</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.fuel_capacity}}</td>
+          </tr>
+          <tr>
+            <th>車重</th>
+            <td class="pl-2 lg:pl-0">{{tempBike.weight}}</td>
+          </tr>
+          <tr>
+            <th>車長 X 車寬 X 車高</th>
+            <td class="pl-2 lg:pl-0">
+              {{tempBike.length}} X {{tempBike.width}} X {{tempBike.height}} mm
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="modal-action justify-between px-3 lg:px-6">
+      <button class="btn-outline btn-primary btn flex-1" @click="addFavorite">
+        加入我的收藏
+      </button>
+      <router-link :to="`/rent/${tempBike.id}`" class="btn-primary btn flex-1">
+        直接訂車
+      </router-link>
+    </div>
+  </div>
+</div>

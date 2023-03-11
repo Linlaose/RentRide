@@ -1,0 +1,124 @@
+<section class="lg:mt-12">
+  <div
+    class="container flex flex-col flex-wrap items-start justify-between gap-6 2xl:flex-nowrap"
+  >
+    <ul>
+      <li>
+        <p class="mb-2 hidden lg:block">出發日期 &#8594; 還車日期</p>
+        <v-date-picker
+          v-model="range"
+          is-range
+          :masks="masks"
+          ref="rentCalendar"
+        >
+          <template v-slot="{ inputValue, inputEvents }">
+            <div
+              class="flex flex-col items-start justify-start gap-2 lg:flex-row lg:items-center"
+            >
+              <label class="block lg:hidden">出發日期</label>
+              <input
+                :value="inputValue.start"
+                v-on="inputEvents.start"
+                class="w-40 rounded-lg border bg-light-white px-2 py-1 text-smoke-dark focus:border-indigo-300 focus:outline-none"
+              />
+              <svg
+                class="mx-2 hidden h-4 w-4 lg:block"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+              <label class="block lg:hidden">還車日期</label>
+              <input
+                :value="inputValue.end"
+                v-on="inputEvents.end"
+                class="w-40 rounded-lg border bg-light-white px-2 py-1 text-smoke-dark focus:border-indigo-300 focus:outline-none"
+              />
+            </div>
+          </template>
+        </v-date-picker>
+      </li>
+    </ul>
+    <ul class="flex flex-wrap items-end gap-4 2xl:flex-nowrap 2xl:gap-12">
+      <li>
+        <p class="mb-2">級別</p>
+        <select
+          class="select-bordered select h-auto min-h-[34px] w-full max-w-xs bg-light-white text-base font-normal text-smoke-dark"
+          v-model="getOption.grade"
+        >
+          <option value="">請選擇級別</option>
+          <option value="SS">Grade SS</option>
+          <option value="S">Grade S</option>
+          <option value="A">Grade A</option>
+          <option value="B">Grade B</option>
+          <option value="C+">Grade C+</option>
+          <option value="C">Grade C</option>
+        </select>
+      </li>
+      <li>
+        <p class="mb-2">排氣量</p>
+        <select
+          class="select-bordered select h-auto min-h-[34px] w-full max-w-xs bg-light-white text-base font-normal text-smoke-dark"
+          v-model="getOption.displacement"
+          @change="checkType"
+        >
+          <option value="">請選擇排氣量</option>
+          <option value="[250, 399]">250cc ~ 399cc</option>
+          <option value="[400, 599]">400cc ~ 599cc</option>
+          <option value="[600, 1000]">600cc ~ 1000cc</option>
+          <option value="[1001]">1000cc 以上</option>
+        </select>
+      </li>
+      <li>
+        <p class="mb-2">車型</p>
+        <select
+          class="select-bordered select h-auto min-h-[34px] w-full max-w-xs bg-light-white text-base font-normal text-smoke-dark"
+          v-model="getOption.type"
+        >
+          <option value="">請選擇車型</option>
+          <option value="跑車">跑車</option>
+          <option value="街車">街車</option>
+          <option value="嬉皮車">嬉皮車</option>
+          <option value="休旅車">休旅車</option>
+          <option value="越野車">越野車</option>
+          <option value="多功能車">多功能車</option>
+          <option value="大綿羊">大綿羊</option>
+        </select>
+      </li>
+      <li>
+        <p class="mb-2">品牌</p>
+        <select
+          class="select-bordered select h-auto min-h-[34px] w-full max-w-xs bg-light-white text-base font-normal text-smoke-dark"
+          v-model="getOption.make"
+        >
+          <option value="">請選擇品牌</option>
+          <option value="Yamaha">Yamaha</option>
+          <option value="Honda">Honda</option>
+          <option value="Indian">Indian</option>
+          <option value="BMW">BMW</option>
+          <option value="Aprillia">Aprillia</option>
+          <option value="KTM">KTM</option>
+          <option value="Suzuki">Suzuki</option>
+          <option value="Kawasaki">Kawasaki</option>
+          <option value="Triumph">Triumph</option>
+          <option value="Benelli">Benelli</option>
+        </select>
+      </li>
+      <div>
+        <button
+          class="btn-primary btn inline-block px-8"
+          type="button"
+          @click.prevent="search"
+        >
+          搜尋
+        </button>
+      </div>
+    </ul>
+  </div>
+</section>

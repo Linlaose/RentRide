@@ -1,0 +1,42 @@
+<section>
+  <div
+    v-if="bikes.length <= 0"
+    class="container flex min-h-[50vh] items-center justify-center"
+  >
+    <h3>尚無對應車款，請重新搜尋</h3>
+  </div>
+  <div
+    v-else
+    class="container my-10 grid gap-6 md:grid-cols-4 lg:my-20 lg:grid-cols-12"
+  >
+    <div
+      v-for="bike in bikes"
+      :key="bike.id"
+      class="card bg-base-100 shadow-xl md:col-span-2 lg:col-span-4"
+    >
+      <div class="card-body relative h-[45vh] justify-between">
+        <h2 class="card-title text-smoke-dark">
+          {{bike.year}} {{bike.model}} - {{bike.grade}} 級車
+        </h2>
+        <div class="position-center absolute z-10 w-full sm:w-[80%]">
+          <img class="w-full" :src="bike.imgUrl" />
+        </div>
+        <div
+          class="absolute top-55% left-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-4"
+        >
+          <img class="mx-auto w-full" src="@/assets/images/triangle.svg" />
+        </div>
+        <div class="flex justify-between gap-4">
+          <label
+            for="rent-modal"
+            class="btn-outline btn-primary btn flex-1"
+            @click="checkBike(bike)"
+          >
+            車輛詳情
+          </label>
+          <button class="btn-primary btn flex-1">直接訂車</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

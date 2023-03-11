@@ -44,6 +44,7 @@ module.exports = {
       'gsap',
       'swiper',
       'daisyui',
+      'v-calendar',
     ],
   },
 };

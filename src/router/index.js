@@ -22,6 +22,13 @@ const router = createRouter({
       path: '/rent',
       name: 'rent',
       component: () => import('@/views/Rent/RentView.vue'),
+      children: [
+        {
+          path: 'rent/:id',
+          name: 'rentBike',
+          component: () => import('@/views/RentBike/RentBikeView.vue'),
+        },
+      ],
     },
     {
       path: '/shop',
@@ -29,6 +36,11 @@ const router = createRouter({
       component: () => import('@/views/Shop/ShopView.vue'),
     },
   ],
+  scrollBehavior() {
+    return {
+      top: 0,
+    };
+  },
 });
 
 export default router;

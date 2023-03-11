@@ -63,4 +63,15 @@ module.exports = {
   },
   // eslint-disable-next-line global-require
   plugins: [require('daisyui')],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: '#4636AB',
+          'primary-content': '#f2f2f2',
+          'base-100': '#F2F2F2',
+        },
+      },
+    ],
+  },
 };
