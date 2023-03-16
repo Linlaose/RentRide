@@ -34,7 +34,12 @@
           >
             車輛詳情
           </label>
-          <button class="btn-primary btn flex-1">直接訂車</button>
+          <router-link
+            :to="`/rentOrder/${bike.id}`"
+            class="btn-primary btn flex-1"
+          >
+            直接訂車
+          </router-link>
         </div>
       </div>
     </div>

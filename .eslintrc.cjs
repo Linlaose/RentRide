@@ -45,6 +45,12 @@ module.exports = {
       'swiper',
       'daisyui',
       'v-calendar',
+      'vee-validate',
+      '@vee-validate/rules',
+      '@vee-validate/i18n',
+      'jwt-decode',
+      'vue-sweetalert2',
+      'sweetalert2',
     ],
   },
 };

@@ -9,6 +9,7 @@ export default defineStore('rentStore', {
     originalBikes: [],
     bikes: [],
     tempBike: {},
+    orderBike: {},
     options: {
       grade: '',
       displacement: '',
@@ -16,6 +17,8 @@ export default defineStore('rentStore', {
       type: '',
       make: '',
     },
+    rentDate: null,
+    returnDate: null,
   }),
   getters: {
     getOption: ({ options }) => {
@@ -61,11 +64,29 @@ export default defineStore('rentStore', {
           console.log(err);
         });
     },
+    getBike(id) {
+      const url = `${this.VITE_URL}/${this.VITE_PATH}/${id}`;
+
+      axios
+        .get(url)
+        .then((res) => {
+          const { data } = res;
+          this.orderBike = data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     search() {
       this.bikes = this.searchBikes;
     },
     checkBike(bike) {
       this.tempBike = bike;
+      document.body.style.overflow = 'hidden';
+    },
+    takeTime(start, end) {
+      this.rentDate = new Date(start).getTime();
+      this.returnDate = new Date(end).getTime();
     },
   },
 });

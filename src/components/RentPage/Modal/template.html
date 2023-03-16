@@ -7,7 +7,12 @@
       class="flex items-center justify-between bg-light-purple p-3 text-2xl text-light-white lg:py-4 lg:px-8"
     >
       <h2>{{tempBike.year}} {{tempBike.model}} - {{tempBike.grade}} 級車</h2>
-      <label for="rent-modal" class="btn-primary btn text-2xl">&#x2715;</label>
+      <label
+        for="rent-modal"
+        class="btn-primary btn text-2xl"
+        @click="scrollVisible"
+        >&#x2715;</label
+      >
     </div>
     <div class="grid grid-cols-4 p-3 lg:grid-cols-12 lg:gap-6 lg:py-4 lg:px-6">
       <img class="col-span-4 lg:col-span-6" :src="tempBike.imgUrl" alt="" />
@@ -72,7 +77,10 @@
       <button class="btn-outline btn-primary btn flex-1" @click="addFavorite">
         加入我的收藏
       </button>
-      <router-link :to="`/rent/${tempBike.id}`" class="btn-primary btn flex-1">
+      <router-link
+        :to="`/rentOrder/${tempBike.id}`"
+        class="btn-primary btn flex-1"
+      >
         直接訂車
       </router-link>
     </div>

@@ -1,0 +1,137 @@
+<section class="container lg:my-20">
+  <h2 class="bg-light-purple text-[32px] lg:py-4 lg:px-8">
+    訂單資訊 ({{orderBike.year}} {{orderBike.model}} - {{orderBike.grade}} 級車)
+  </h2>
+  <div class="bg-light-white lg:p-8">
+    <div class="grid lg:grid-cols-12 lg:gap-6">
+      <img class="lg:col-span-6 lg:col-start-2" :src="orderBike.imgUrl" />
+      <div class="flex flex-col lg:col-span-4 lg:col-start-9 lg:gap-3">
+        <p class="border-b border-dark-gray lg:pb-3">
+          <span class="block text-sm text-dark-gray">取車日期</span>
+          <div v-if="formattedDate.rent" class="flex justify-between items-center">
+            <mark
+              class="bg-transparent text-orange-pink"
+              >{{formattedDate.rent}}</mark
+            >
+            <button type="button" class="btn btn-ghost text-smoke-dark" @click="formattedDate.rent = null">修改</button>
+          </div>
+          <v-date-picker
+            v-else
+            v-model="tempDate.rent"
+            mode="date"
+            :masks="masks"
+          >
+            <template v-slot="{ inputValue, inputEvents }">
+              <input
+                class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                :value="inputValue"
+                v-on="inputEvents"
+              />
+            </template>
+          </v-date-picker>
+        </p>
+        <p class="border-b border-dark-gray lg:pb-3">
+          <span class="block text-sm text-dark-gray">還車日期</span>
+          <div v-if="formattedDate.return" class="flex justify-between items-center">
+            <mark
+              class="bg-transparent text-orange-pink"
+              >{{formattedDate.return}}</mark
+            >
+            <button type="button" class="btn btn-ghost text-smoke-dark" @click="formattedDate.return = null">修改</button>
+          </div>
+          <v-date-picker
+            v-else
+            v-model="tempDate.return"
+            mode="date"
+            :masks="masks"
+          >
+            <template v-slot="{ inputValue, inputEvents }">
+              <input
+                class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                :value="inputValue"
+                v-on="inputEvents"
+              />
+            </template>
+          </v-date-picker>
+        </p>
+        <div class="border-b border-dark-gray lg:pb-3">
+          <span class="block text-sm text-dark-gray">車輛資料</span>
+          <table class="font-sans-tc mt-1 w-full text-smoke-dark">
+            <tr class="border-b-4 border-transparent">
+              <th width="30%" class="text-left">年份</th>
+              <td>{{orderBike.year}}</td>
+            </tr>
+            <tr class="border-b-4 border-transparent">
+              <th width="30%" class="text-left">品牌</th>
+              <td>{{orderBike.make}}</td>
+            </tr>
+            <tr>
+              <th width="30%" class="text-left">車款</th>
+              <td>{{orderBike.model}}</td>
+            </tr>
+          </table>
+        </div>
+        <div class="lg:pb-3">
+          <span class="block text-sm text-dark-gray">會員資料</span>
+          <table class="font-sans-tc mt-1 w-full text-smoke-dark">
+            <tr class="border-b-4 border-transparent">
+              <th width="30%" class="text-left">姓名</th>
+              <td>{{ user.name }}</td>
+            </tr>
+            <tr class="border-b-4 border-transparent">
+              <th width="30%" class="text-left">生日</th>
+              <td>{{ user.birthFormatted }}</td>
+            </tr>
+            <tr>
+              <th width="30%" class="text-left">電話</th>
+              <td>{{ user.tel }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div
+      class="grid grid-cols-12 lg:mt-6 lg:border-t-2 lg:border-dashed lg:border-smoke-dark lg:pt-6"
+    >
+      <div class="flex items-end justify-between lg:col-span-11 lg:col-start-2">
+        <div class="flex flex-col lg:gap-3">
+          <p class="border-b border-dark-gray lg:pb-3">
+            <span class="block text-sm text-dark-gray">基本金額</span>
+            <span class="font-sans-tc mt-1 bg-transparent text-smoke-dark"
+              >TWD
+              <mark class="ml-2 bg-transparent text-orange-pink"
+                >{{ orderBike.rent_price }} {{ dateSpan ? `* ${dateSpan}(天數)` : '' }}</mark
+              ></span
+            >
+          </p>
+          <p class="border-b border-dark-gray lg:pb-3">
+            <span class="block text-sm text-dark-gray">假日加價</span>
+            <span class="font-sans-tc mt-1 bg-transparent text-smoke-dark"
+              >TWD
+              <mark class="ml-2 bg-transparent text-orange-pink">+0</mark></span
+            >
+          </p>
+          <p class="font-sans-tc text-smoke-dark">
+            * 里程費用<br />
+            第1至50公里：TWD 6 /公里<br />
+            第51至150公里：TWD 5 /公里<br />
+            第151公里以上：TWD 4 /公里
+          </p>
+        </div>
+        <div class="flex items-center lg:gap-3">
+          <span class="block text-sm text-dark-gray"> 租車金額 </span>
+          <p class="text-2xl text-orange-pink lg:mr-3">
+            TWD {{ totalRent }}
+          </p>
+          <button
+            type="button"
+            class="btn-primary btn w-40"
+            @click="rentConfirm"
+          >
+            確認租車
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

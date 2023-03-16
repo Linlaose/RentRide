@@ -1,0 +1,199 @@
+<input type="checkbox" id="login-modal" class="modal-toggle" ref="loginModal" />
+<div class="modal">
+  <div class="container grid grid-cols-4 gap-6 lg:grid-cols-12">
+    <div
+      class="modal-box col-span-4 min-h-[500px] w-auto max-w-7xl flex-col justify-between rounded-none bg-light-gray p-0 lg:col-span-10 lg:col-start-2 lg:flex"
+    >
+      <label
+        for="login-modal"
+        class="btn absolute top-4 right-4 flex w-fit text-2xl"
+        @click="scrollVisible"
+        >&#x2715;</label
+      >
+      <div class="flex h-full items-center justify-between lg:h-auto">
+        <div class="flex-1 p-4 text-center lg:px-14">
+          <p class="text-left text-2xl text-smoke-dark lg:text-32px">
+            <span class="text-orange-pink">R</span>ent
+            <span class="text-orange-pink">R</span>ide
+          </p>
+          <p class="mt-4 text-smoke-dark lg:mt-6 lg:text-2xl">歡迎回來</p>
+          <p class="text-smoke-dark lg:mt-3 lg:text-xl">
+            準備好再次啟動重機之旅了嗎？
+            <span
+              class="mt-1 block text-sm text-dark-gray"
+              :class="{'input-invisible': isRegistered}"
+              >我有帳號了！<mark
+                class="link-primary link bg-transparent"
+                @click="toggleForm"
+                >按我登入</mark
+              ></span
+            >
+          </p>
+          <v-form
+            v-if="isRegistered"
+            @submit="login"
+            class="form-control mx-auto mt-2 w-full max-w-xs lg:mt-8"
+            :validation-schema="loginSchema"
+            v-slot="{errors}"
+          >
+            <div>
+              <label class="label pt-0" for="loginEmail">
+                <span class="label-text">帳號</span>
+              </label>
+              <v-field
+                id="loginEmail"
+                name="email"
+                label="帳號"
+                type="email"
+                placeholder="請輸入 email"
+                class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                :class="{'input-error': errors.email}"
+              />
+              <span
+                class="block h-[21px] text-sm text-orange-pink lg:h-6 lg:text-base"
+                >{{errors.email}}</span
+              >
+            </div>
+            <div>
+              <label class="label" for="loginPassword">
+                <span class="label-text">密碼</span>
+              </label>
+              <v-field
+                id="loginPassword"
+                name="password"
+                label="密碼"
+                type="password"
+                placeholder="請輸入密碼"
+                class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                :class="{'input-error': errors.password}"
+              />
+              <span
+                class="block h-[21px] text-sm text-orange-pink lg:h-6 lg:text-base"
+                >{{errors.password}}</span
+              >
+            </div>
+            <button class="btn-primary btn mt-2">登入</button>
+            <span
+              class="mt-2 block text-sm text-dark-gray"
+              :class="{'input-invisible': !isRegistered}"
+              >我沒有帳號，<mark
+                class="link-primary link bg-transparent"
+                @click="toggleForm"
+                >按我註冊</mark
+              ></span
+            >
+          </v-form>
+          <v-form
+            v-else
+            @submit="signUp"
+            class="form-control mx-auto mt-2 w-full max-w-xs lg:mt-8"
+            :validation-schema="schema"
+            v-slot="{errors}"
+          >
+            <div>
+              <label class="label pt-0" for="signUpEmail">
+                <span class="label-text">帳號</span>
+              </label>
+              <v-field
+                id="signUpEmail"
+                name="email"
+                label="帳號"
+                type="email"
+                placeholder="請輸入 email"
+                class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                :class="{'input-error': errors.email}"
+              />
+              <span
+                class="block h-[21px] text-sm text-orange-pink lg:h-6 lg:text-base"
+                >{{errors.email}}</span
+              >
+            </div>
+            <div>
+              <label class="label" for="signUpPassword">
+                <span class="label-text">密碼</span>
+              </label>
+              <v-field
+                id="signUpPassword"
+                name="password"
+                label="密碼"
+                type="password"
+                placeholder="請輸入密碼"
+                class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                :class="{'input-error': errors.password}"
+              />
+              <span
+                class="block h-[21px] text-sm text-orange-pink lg:h-6 lg:text-base"
+                >{{errors.password}}</span
+              >
+            </div>
+            <div class="flex gap-3 transition-all duration-500">
+              <div class="flex-1">
+                <label class="label" for="name">
+                  <span class="label-text">姓名</span>
+                </label>
+                <v-field
+                  id="name"
+                  name="name"
+                  label="姓名"
+                  type="text"
+                  placeholder="請輸入姓名"
+                  class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                  :class="{'input-error': errors.name}"
+                />
+                <span
+                  class="block h-[21px] text-sm text-orange-pink lg:h-6 lg:text-base"
+                  >{{errors.name}}</span
+                >
+              </div>
+              <div class="flex-1">
+                <label class="label" for="date">
+                  <span class="label-text">生日</span>
+                </label>
+                <v-date-picker v-model="date" :masks="masks">
+                  <template v-slot="{ inputValue, inputEvents }">
+                    <input
+                      class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                      :value="inputValue"
+                      v-on="inputEvents"
+                      id="date"
+                      name="date"
+                      :rules="schema.date"
+                      :class="{'input-error': errors.date}"
+                    />
+                    <span
+                      class="block h-[21px] text-sm text-orange-pink lg:h-6 lg:text-base"
+                      >{{errors.date}}</span
+                    >
+                  </template>
+                </v-date-picker>
+              </div>
+            </div>
+            <div class="transition-all duration-500 lg:mb-3">
+              <label class="label" for="tel">
+                <span class="label-text">電話</span>
+              </label>
+              <v-field
+                id="tel"
+                name="tel"
+                type="tel"
+                placeholder="請輸入電話號碼"
+                class="input-bordered input input-md w-full max-w-xs text-smoke-dark"
+                :class="{'input-error': errors.tel}"
+              />
+              <span
+                class="block h-[21px] text-sm text-orange-pink lg:h-6 lg:text-base"
+                >{{errors.tel}}</span
+              >
+            </div>
+            <button class="btn-primary btn mt-2">註冊</button>
+          </v-form>
+        </div>
+        <img
+          src="@/assets/images/login_img.jpg"
+          alt=""
+          class="hidden h-[740px] lg:block"
+        />
+      </div>
+    </div>
+  </div>
+</div>

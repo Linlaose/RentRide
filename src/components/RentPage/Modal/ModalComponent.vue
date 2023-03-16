@@ -11,6 +11,11 @@ export default {
   computed: {
     ...mapState(RentStore, ['tempBike']),
   },
+  methods: {
+    scrollVisible() {
+      document.body.style.overflow = 'visible';
+    },
+  },
 };
 </script>
 

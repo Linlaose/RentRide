@@ -10,16 +10,36 @@
       class="fixed left-0 top-0 z-20 h-screen w-[260px] gap-x-12 border-r-4 border-light-purple bg-smoke-dark transition-transform duration-500 lg:static lg:flex lg:h-auto lg:w-auto lg:translate-x-0 lg:border-0"
     >
       <div class="mx-4 mb-6 mt-14 flex items-center justify-between lg:hidden">
-        <a href="#">
-          <img
-            class="inline h-12 w-[72px]"
-            src="@/assets/images/logo.png"
-            alt=""
-          />
-        </a>
-        <a href="#"
+        <router-link to="/" title="Rent Ride">
+          <img class="inline h-12 w-[72px]" src="@/assets/images/logo.png" />
+        </router-link>
+        <div v-if="isLoggedIn" class="dropdown">
+          <label tabindex="0" class="font-sans-tc btn m-1 normal-case"
+            >您好，{{ user.name }}</label
+          >
+          <ul
+            tabindex="0"
+            class="dropdown-content menu rounded-box w-52 bg-base-100 p-2 shadow"
+          >
+            <li>
+              <a class="text-smoke-dark active:bg-orange-pink">會員中心</a>
+            </li>
+            <li>
+              <a
+                class="text-smoke-dark active:bg-orange-pink"
+                @click.prevent="logOut"
+                >登出</a
+              >
+            </li>
+          </ul>
+        </div>
+        <label
+          v-else
+          for="login-modal"
+          class="btn border-transparent"
+          @click="scrollHidden"
           ><i class="fa-solid fa-circle-user text-3xl text-light-white"></i
-        ></a>
+        ></label>
       </div>
       <p>
         <!-- 用 scale 的方法做出底線從中間延伸的動畫 -->
@@ -47,12 +67,32 @@
         </router-link>
       </p>
     </nav>
-    <button
-      type="button"
-      class="btn-clip relative hidden border border-light-purple px-6 py-4 before:absolute before:top-0 before:left-0 before:-z-10 before:block before:h-20 before:w-40 before:scale-x-0 before:bg-light-purple before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100 lg:block"
+    <div v-if="isLoggedIn" class="dropdown-end dropdown hidden lg:block">
+      <label tabindex="0" class="font-sans-tc btn m-1 normal-case"
+        >您好，{{ user.name }}</label
+      >
+      <ul
+        tabindex="0"
+        class="dropdown-content menu rounded-box w-52 bg-base-100 p-2 shadow"
+      >
+        <li><a class="text-smoke-dark active:bg-orange-pink">會員中心</a></li>
+        <li>
+          <a
+            class="text-smoke-dark active:bg-orange-pink"
+            @click.prevent="logOut"
+            >登出</a
+          >
+        </li>
+      </ul>
+    </div>
+    <label
+      v-else
+      for="login-modal"
+      class="btn-clip relative hidden cursor-pointer border border-light-purple px-6 py-4 text-xl before:absolute before:top-0 before:left-0 before:-z-10 before:block before:h-20 before:w-40 before:scale-x-0 before:bg-light-purple before:transition-transform before:duration-300 before:content-[''] before:hover:scale-x-100 lg:block"
+      @click="scrollHidden"
     >
       登入 / 註冊
-    </button>
+    </label>
     <button
       type="button"
       class="relative h-9 w-10 rounded-[4px] border border-light-white lg:hidden"

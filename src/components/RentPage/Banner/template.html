@@ -8,11 +8,18 @@
       <li class="flex items-center gap-3">
         <i class="fa-solid fa-circle text-6px text-orange-pink"></i>
         <div class="text-orange-pink">
-          <p>我要租車</p>
+          <p v-if="$route.params.id">確認訂單 [租車]</p>
+          <p v-else>我要租車</p>
         </div>
       </li>
     </ol>
-    <h2 class="hidden text-orange-pink lg:mt-8 lg:block lg:text-66px">
+    <h2
+      v-if="$route.params.id"
+      class="hidden text-orange-pink lg:mt-8 lg:block lg:text-66px"
+    >
+      確認訂單 [租車]
+    </h2>
+    <h2 v-else class="hidden text-orange-pink lg:mt-8 lg:block lg:text-66px">
       我要租車
     </h2>
   </nav>

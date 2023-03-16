@@ -12,10 +12,10 @@ export default {
     };
   },
   computed: {
-    ...mapState(RentStore, ['getOption']),
+    ...mapState(RentStore, ['getOption', 'rentDate', 'returnDate']),
   },
   methods: {
-    ...mapActions(RentStore, ['search']),
+    ...mapActions(RentStore, ['search', 'takeTime']),
   },
   watch: {
     range(newVal) {
@@ -24,6 +24,7 @@ export default {
         start.setHours(0, 0, 0, 0),
         end.setHours(23, 59, 59, 999),
       ];
+      this.takeTime(start, end);
     },
   },
 };
