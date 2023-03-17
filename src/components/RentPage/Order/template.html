@@ -1,11 +1,11 @@
-<section class="container lg:my-20">
-  <h2 class="bg-light-purple text-[32px] lg:py-4 lg:px-8">
-    訂單資訊 ({{orderBike.year}} {{orderBike.model}} - {{orderBike.grade}} 級車)
+<section class="container lg:my-20 my-10">
+  <h2 class="bg-light-purple lg:text-[32px] lg:py-4 lg:px-8 text-2xl p-3">
+    {{orderBike.year}} {{orderBike.model}} - {{orderBike.grade}} 級車
   </h2>
   <div class="bg-light-white lg:p-8">
     <div class="grid lg:grid-cols-12 lg:gap-6">
       <img class="lg:col-span-6 lg:col-start-2" :src="orderBike.imgUrl" />
-      <div class="flex flex-col lg:col-span-4 lg:col-start-9 lg:gap-3">
+      <div class="flex flex-col lg:col-span-4 lg:col-start-9 lg:gap-3 px-3 lg:px-0">
         <p class="border-b border-dark-gray lg:pb-3">
           <span class="block text-sm text-dark-gray">取車日期</span>
           <div v-if="formattedDate.rent" class="flex justify-between items-center">
@@ -20,6 +20,7 @@
             v-model="tempDate.rent"
             mode="date"
             :masks="masks"
+            class="py-2 lg:py-0"
           >
             <template v-slot="{ inputValue, inputEvents }">
               <input
@@ -30,7 +31,7 @@
             </template>
           </v-date-picker>
         </p>
-        <p class="border-b border-dark-gray lg:pb-3">
+        <p class="border-b border-dark-gray lg:pb-3 mt-2 lg:mt-0">
           <span class="block text-sm text-dark-gray">還車日期</span>
           <div v-if="formattedDate.return" class="flex justify-between items-center">
             <mark
@@ -44,6 +45,7 @@
             v-model="tempDate.return"
             mode="date"
             :masks="masks"
+            class=" py-2 lg:py-0"
           >
             <template v-slot="{ inputValue, inputEvents }">
               <input
@@ -54,7 +56,7 @@
             </template>
           </v-date-picker>
         </p>
-        <div class="border-b border-dark-gray lg:pb-3">
+        <div class="border-b border-dark-gray lg:pb-3 mt-2 pb-2 lg:mt-0">
           <span class="block text-sm text-dark-gray">車輛資料</span>
           <table class="font-sans-tc mt-1 w-full text-smoke-dark">
             <tr class="border-b-4 border-transparent">
@@ -71,7 +73,7 @@
             </tr>
           </table>
         </div>
-        <div class="lg:pb-3">
+        <div class="lg:pb-3 mt-2 pb-2 lg:mt-0 border-b border-dark-gray">
           <span class="block text-sm text-dark-gray">會員資料</span>
           <table class="font-sans-tc mt-1 w-full text-smoke-dark">
             <tr class="border-b-4 border-transparent">
@@ -91,11 +93,11 @@
       </div>
     </div>
     <div
-      class="grid grid-cols-12 lg:mt-6 lg:border-t-2 lg:border-dashed lg:border-smoke-dark lg:pt-6"
+      class="lg:grid p-3 lg:p-0 grid-cols-12 lg:mt-6 lg:border-t-2 lg:border-dashed lg:border-smoke-dark lg:pt-6"
     >
-      <div class="flex items-end justify-between lg:col-span-11 lg:col-start-2">
-        <div class="flex flex-col lg:gap-3">
-          <p class="border-b border-dark-gray lg:pb-3">
+      <div class="lg:flex items-end justify-between lg:col-span-11 lg:col-start-2">
+        <div class="flex flex-col lg:gap-3 gap-2">
+          <p class="border-b border-dark-gray lg:pb-3 pb-1">
             <span class="block text-sm text-dark-gray">基本金額</span>
             <span class="font-sans-tc mt-1 bg-transparent text-smoke-dark"
               >TWD
@@ -104,7 +106,7 @@
               ></span
             >
           </p>
-          <p class="border-b border-dark-gray lg:pb-3">
+          <p class="border-b border-dark-gray lg:pb-3 pb-1">
             <span class="block text-sm text-dark-gray">假日加價</span>
             <span class="font-sans-tc mt-1 bg-transparent text-smoke-dark"
               >TWD
@@ -118,14 +120,14 @@
             第151公里以上：TWD 4 /公里
           </p>
         </div>
-        <div class="flex items-center lg:gap-3">
+        <div class="mt-2 lg:mt-0 flex items-center justify-between lg:justify-start lg:gap-3 flex-wrap lg:flex-nowrap">
           <span class="block text-sm text-dark-gray"> 租車金額 </span>
           <p class="text-2xl text-orange-pink lg:mr-3">
             TWD {{ totalRent }}
           </p>
           <button
             type="button"
-            class="btn-primary btn w-40"
+            class="btn-primary btn lg:w-40 mt-2 lg:mt-0 w-full"
             @click="rentConfirm"
           >
             確認租車

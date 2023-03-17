@@ -46,6 +46,7 @@
         <router-link
           to="/news"
           class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:m-0 lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-16 lg:hover:text-orange-pink"
+          @click="switchBurger"
         >
           最新消息
         </router-link>
@@ -54,6 +55,7 @@
         <router-link
           to="/rent"
           class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:m-0 lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-16 lg:hover:text-orange-pink"
+          @click="switchBurger"
         >
           我要租車
         </router-link>
@@ -62,13 +64,14 @@
         <router-link
           to="/shop"
           class="mr-4 ml-4 block border-b py-4 transition-all duration-300 after:absolute after:-bottom-1 after:scale-x-0 after:bg-orange-pink after:opacity-0 after:transition-all after:duration-300 after:hover:scale-x-100 after:hover:opacity-100 active:text-orange-pink lg:relative lg:m-0 lg:ml-0 lg:border-0 lg:p-0 lg:after:block lg:after:h-px lg:after:w-16 lg:hover:text-orange-pink"
+          @click="switchBurger"
         >
           重機商城
         </router-link>
       </p>
     </nav>
-    <div v-if="isLoggedIn" class="dropdown-end dropdown hidden lg:block">
-      <label tabindex="0" class="font-sans-tc btn m-1 normal-case"
+    <div v-if="isLoggedIn" class="dropdown dropdown-end hidden lg:block">
+      <label tabindex="0" class="font-sans-tc btn m-1 h-[54px] normal-case"
         >您好，{{ user.name }}</label
       >
       <ul
@@ -113,4 +116,4 @@
     </button>
   </div>
 </header>
-<div class="h-[86px] opacity-0"></div>
+<div class="h-[72px] opacity-0 lg:h-[86px]"></div>
