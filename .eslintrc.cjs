@@ -51,6 +51,7 @@ module.exports = {
       'jwt-decode',
       'vue-sweetalert2',
       'sweetalert2',
+      'lodash',
     ],
   },
 };

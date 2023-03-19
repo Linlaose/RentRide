@@ -16,6 +16,7 @@
     "date-fns": "^2.29.3",
     "gsap": "^3.11.4",
     "jwt-decode": "^3.1.2",
+    "lodash": "^4.17.21",
     "pinia": "^2.0.28",
     "sweetalert2": "^11.7.3",
     "swiper": "^9.0.5",

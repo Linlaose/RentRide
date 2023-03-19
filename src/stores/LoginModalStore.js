@@ -118,12 +118,6 @@ export default defineStore('loginModalStore', {
     logOut() {
       this.loginStatus = false;
       document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
-
-      Swal.fire({
-        title: '已登出',
-        icon: 'success',
-        confirmButtonText: '確定',
-      });
       this.getUser();
     },
   },

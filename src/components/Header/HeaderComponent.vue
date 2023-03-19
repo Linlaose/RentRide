@@ -22,6 +22,18 @@ export default {
   mounted() {
     this.refreshLoggedIn();
   },
+  watch: {
+    isLoggedIn(newVal) {
+      if (newVal === true) return;
+      this.$swal({
+        title: '已登出',
+        icon: 'success',
+        confirmButtonText: '確定',
+      }).then(() => {
+        this.$router.push('/');
+      });
+    },
+  },
 };
 </script>
 

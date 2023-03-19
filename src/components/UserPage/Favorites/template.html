@@ -1,0 +1,49 @@
+<section class="container mb-10 lg:mb-20">
+  <div class="grid lg:grid-cols-12 lg:gap-x-6 lg:gap-y-4">
+    <h3 class="text-orange-pink lg:col-span-11 lg:col-start-2">我的收藏</h3>
+    <div
+      class="font-sans-tc grid grid-cols-11 lg:col-span-11 lg:col-start-2 lg:gap-x-6"
+      v-for="favorite in favorites"
+      :key="favorite.id"
+    >
+      <div class="lg:col-span-2">
+        <p class="mb-1 border-b border-dark-gray font-medium lg:pb-2">品牌</p>
+        <p>{{favorite.bike_brand}}</p>
+      </div>
+      <div class="lg:col-span-1">
+        <p class="mb-1 border-b border-dark-gray font-medium lg:pb-2">車型</p>
+        <p>{{favorite.bike_type}}</p>
+      </div>
+      <div class="lg:col-span-1">
+        <p class="mb-1 border-b border-dark-gray font-medium lg:pb-2">年份</p>
+        <p>{{favorite.bike_year}}</p>
+      </div>
+      <div class="lg:col-span-4">
+        <p class="mb-1 border-b border-dark-gray font-medium lg:pb-2">車款</p>
+        <div class="lg:flex">
+          <p class="lg:flex-1">{{favorite.bike_model}}</p>
+          <img class="lg:w-[60%]" :src="favorite.imgUrl" />
+        </div>
+      </div>
+      <div class="lg:col-span-1">
+        <p class="mb-1 border-b border-dark-gray font-medium lg:pb-2">等級</p>
+        <p>{{favorite.bike_grade}}</p>
+      </div>
+      <div class="items-center lg:col-span-1 lg:flex">
+        <router-link
+          :to="`/rentOrder/${favorite.bike_id}`"
+          class="btn-primary btn text-base lg:w-full"
+          >租車</router-link
+        >
+      </div>
+      <div class="items-center lg:col-span-1 lg:flex">
+        <button
+          class="error-content btn-outline btn-error btn text-base lg:w-full"
+          @click="delFavorite(favorite.id)"
+        >
+          刪除
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
