@@ -38,6 +38,11 @@ const router = createRouter({
       name: 'shop',
       component: () => import('@/views/Shop/ShopView.vue'),
     },
+    {
+      path: '/shop/motorcycles/:id',
+      name: 'shopBike',
+      component: () => import('@/views/ShopBike/ShopBikeView.vue'),
+    },
   ],
   scrollBehavior() {
     return {

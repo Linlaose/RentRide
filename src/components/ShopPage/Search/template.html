@@ -1,0 +1,87 @@
+<div class="col-span-4">
+  <div class="bg-orange-pink p-4">
+    <div class="flex justify-between text-light-white">
+      <div>
+        <h4 class="text-2xl lg:text-32px lg:leading-normal">搜尋選項</h4>
+        <p class="text-sm">尋找你的夢想車款</p>
+      </div>
+      <img src="@/assets/images/bike_icon.svg" />
+    </div>
+  </div>
+  <div class="bg-light-white">
+    <ul
+      class="grid gap-y-4 p-4 md:grid-cols-2 lg:grid-cols-none lg:gap-y-6 lg:p-12 lg:py-8"
+    >
+      <li class="items-center justify-between lg:flex lg:gap-x-2">
+        <vue-date-picker
+          v-model="year"
+          year-picker
+          :year-range="[2000, new Date().getFullYear()]"
+          auto-apply
+          :format="yearFormat"
+          placeholder="車款年份(起)"
+          class="w-full max-w-xs bg-transparent placeholder:text-smoke-dark"
+        />
+      </li>
+      <li>
+        <select
+          class="select w-full max-w-xs border-smoke-dark font-normal text-smoke-dark"
+          v-model="searchOptions.type"
+        >
+          <option disabled value="null">請選擇車型</option>
+          <option value="跑車">跑車</option>
+          <option value="街車">街車</option>
+          <option value="嬉皮車">嬉皮車</option>
+          <option value="休旅車">休旅車</option>
+          <option value="越野車">越野車</option>
+          <option value="多功能車">多功能車</option>
+          <option value="大綿羊">大綿羊</option>
+        </select>
+      </li>
+      <li>
+        <select
+          class="font-sans-tc select w-full max-w-xs border-smoke-dark font-normal text-smoke-dark"
+          v-model="searchOptions.make"
+        >
+          <option disabled value="null">請選擇品牌</option>
+          <option value="Yamaha">Yamaha</option>
+          <option value="Honda">Honda</option>
+          <option value="Indian">Indian</option>
+          <option value="BMW">BMW</option>
+          <option value="Aprillia">Aprillia</option>
+          <option value="KTM">KTM</option>
+          <option value="Suzuki">Suzuki</option>
+          <option value="Kawasaki">Kawasaki</option>
+          <option value="Triumph">Triumph</option>
+          <option value="Benelli">Benelli</option>
+        </select>
+      </li>
+      <li>
+        <select
+          class="font-sans-tc select w-full max-w-xs border-smoke-dark font-normal text-smoke-dark"
+          v-model="searchOptions.displacement"
+        >
+          <option disabled value="null">請選擇排氣量</option>
+          <option value="[250, 399]">250cc ~ 399cc</option>
+          <option value="[400, 599]">400cc ~ 599cc</option>
+          <option value="[600, 1000]">600cc ~ 1000cc</option>
+          <option value="[1001]">1000cc 以上</option>
+        </select>
+      </li>
+      <li class="text-center md:col-span-2 lg:col-auto">
+        <button
+          class="btn-primary btn w-full md:w-auto lg:w-full"
+          @click="search"
+        >
+          確認搜尋
+        </button>
+        <button
+          class="btn-ghost btn mt-2 text-xs text-dark-gray md:mt-0 md:ml-2 lg:mt-2 lg:ml-0"
+          @click="clearSearch"
+        >
+          清除全部選項
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>

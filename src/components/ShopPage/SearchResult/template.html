@@ -1,0 +1,78 @@
+<div
+  :class="[onSaleBikes.length <= 0 ? 'relative' : '']"
+  class="col-span-4 mt-6 lg:col-span-8 lg:mt-0"
+>
+  <p v-if="onSearch" class="lg:text-2xl">
+    已搜尋到
+    <mark class="bg-transparent text-orange-pink">{{onSaleBikes.length}}</mark>
+    筆資料
+  </p>
+  <p
+    class="position-center absolute lg:text-32px lg:leading-normal"
+    v-if="onSaleBikes.length <= 0"
+  >
+    查無對應車款，請重新搜尋
+  </p>
+  <ul
+    v-else
+    :class="[onSearch ? 'lg:mt-6' : 'mt-0']"
+    class="mt-2 grid gap-4 lg:grid-cols-8 lg:gap-6"
+  >
+    <li
+      class="group relative bg-light-white transition-shadow duration-300 hover:shadow-shop-card active:shadow-shop-card lg:col-span-4"
+      v-for="bike in onSaleBikes"
+      :key="bike.id"
+    >
+      <div class="flex justify-between p-3 lg:p-10">
+        <h5 class="text-smoke-dark">{{ bike.model }}</h5>
+        <strong class="text-xl text-orange-pink">$ {{ bike.price }}</strong>
+      </div>
+      <div class="overflow-hidden bg-light-gray lg:h-[320px] lg:py-6">
+        <img
+          class="mx-auto object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105 lg:h-full"
+          :src="bike.imgUrl"
+        />
+      </div>
+      <ul
+        class="font-sans-tc mt-3 flex justify-center text-center text-smoke-dark lg:mt-0 lg:py-8"
+      >
+        <div class="px-4 lg:px-7">
+          <p>年份</p>
+          <p class="lg:pt-2">{{ bike.year }}</p>
+        </div>
+        <div class="border-x border-light-gray px-4 lg:px-7">
+          <p>車型</p>
+          <p class="lg:pt-2">{{ bike.type }}</p>
+        </div>
+        <div class="px-4 lg:px-7">
+          <p>品牌</p>
+          <p class="lg:pt-2">{{ bike.make }}</p>
+        </div>
+      </ul>
+      <div
+        class="font-sans-tc mt-3 grid grid-cols-2 gap-2 border-t border-light-gray p-3 text-smoke-dark md:text-center lg:mt-0 lg:gap-7 lg:p-8 lg:text-left"
+      >
+        <div class="text-sm text-dark-gray">
+          <p>引擎</p>
+          <span class="mt-1 block">{{ bike.engine }}</span>
+        </div>
+        <div class="text-sm text-dark-gray">
+          <p>馬力</p>
+          <span class="mt-1 block">{{ bike.horsepower }}</span>
+        </div>
+        <div class="text-sm text-dark-gray">
+          <p>排氣量</p>
+          <span class="mt-1 block">{{ bike.displacement }} cc</span>
+        </div>
+        <div class="text-sm text-dark-gray">
+          <p>扭力</p>
+          <span class="mt-1 block">{{ bike.torque }}</span>
+        </div>
+      </div>
+      <router-link
+        :to="`/shop/motorcycles/${bike.id}`"
+        class="absolute inset-0"
+      ></router-link>
+    </li>
+  </ul>
+</div>

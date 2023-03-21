@@ -1,0 +1,26 @@
+<section class="relative">
+  <img src="@/assets/images/page-title-bg.jpg" />
+  <nav class="position-center container absolute">
+    <ol class="flex items-center gap-3 text-base lg:text-xl">
+      <li>
+        <router-link to="/">首頁</router-link>
+      </li>
+      <li class="flex items-center gap-3">
+        <i class="fa-solid fa-circle text-6px text-orange-pink"></i>
+        <div class="text-orange-pink">
+          <p v-if="$route.params.id">{{ bike.year }} {{ bike.model }}</p>
+          <p v-else>重機商城</p>
+        </div>
+      </li>
+    </ol>
+    <h2
+      v-if="$route.params.id"
+      class="hidden text-orange-pink lg:mt-8 lg:block lg:text-66px"
+    >
+      {{ bike.year }} {{ bike.model }}
+    </h2>
+    <h2 v-else class="hidden text-orange-pink lg:mt-8 lg:block lg:text-66px">
+      重機商城
+    </h2>
+  </nav>
+</section>

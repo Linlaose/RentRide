@@ -52,6 +52,7 @@ module.exports = {
       'vue-sweetalert2',
       'sweetalert2',
       'lodash',
+      '@vuepic/vue-datepicker',
     ],
   },
 };

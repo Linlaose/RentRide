@@ -1,0 +1,8 @@
+.dp__main .dp__input {
+  background: transparent;
+  font-size: 14px;
+  border-color: #0d0d0d;
+}
+.dp__main .dp__input::placeholder {
+  color: #0d0d0d;
+}

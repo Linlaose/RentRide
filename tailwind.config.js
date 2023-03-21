@@ -46,6 +46,9 @@ module.exports = {
         'blue-gray': '#96C6D9',
         'orange-pink': '#F26E50',
       },
+      boxShadow: {
+        'shop-card': '0 0 10px 6px #96C6D9',
+      },
       animation: {
         'spin-slow': 'spin 2s linear infinite',
         'scale-title': 'scale 3s linear infinite',

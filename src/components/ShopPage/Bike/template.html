@@ -1,0 +1,169 @@
+<section
+  class="container grid border-dark-gray lg:mb-3 lg:mt-12 lg:grid-cols-12 lg:gap-6 lg:border-b lg:pb-20"
+>
+  <h3 class="flex items-center justify-between lg:col-span-12">
+    <div>
+      <p class="text-orange-pink">{{ bike.year }} {{ bike.model }}</p>
+      <span class="block text-xl text-dark-gray"
+        >高性能掌控，無與倫比的驚喜體驗</span
+      >
+    </div>
+    <div><strong class="text-orange-pink">$ {{bike.price}}</strong></div>
+  </h3>
+  <div class="col-span-9">
+    <button
+      class="btn flex border-orange-pink bg-orange-pink text-light-white hover:bg-[#FF886E]"
+    >
+      <i class="fa-regular fa-heart block"></i>
+      <span class="ml-2 block">加入收藏</span>
+    </button>
+    <div class="lg:mt-6">
+      <!-- v-bind 沒指定屬性是黑魔法，不知道為什麼但能用 -->
+      <swiper
+        :modules="modules"
+        v-bind="swiperTopOptions"
+        class="swiper swiperTop"
+        @swiper="setThumbsSwiper"
+      >
+        <swiper-slide v-for="(image, index) in images" :key="index">
+          <img :src="image" alt="" />
+        </swiper-slide>
+      </swiper>
+      <swiper
+        :modules="modules"
+        v-bind="swiperThumbsOptions"
+        :thumbs="{ swiper: thumbsSwiper}"
+        class="swiper swiperThumbs lg:mt-6"
+      >
+        <swiper-slide
+          v-for="(image, index) in images"
+          :key="index"
+          class="hover:cursor-pointer hover:opacity-100"
+        >
+          <img :src="image" alt="" />
+        </swiper-slide>
+      </swiper>
+    </div>
+    <article class="border-dark-gray lg:mt-6 lg:border-b lg:pb-8">
+      <h4 class="lg:text-42px lg:leading-normal">
+        Ninja ZX-6R (ZX636-G) FOR THE FEARLESS - 無所畏懼
+      </h4>
+      <p class="lg:mt-4 lg:text-base">
+        全新改款中量級仿賽車 - Ninja
+        ZX-6R，被設計成更符合大眾騎乘者的特性，除了提供騎乘的高度樂趣、也提供充滿挑戰的刺激。在直列
+        4 缸 636 c.c
+        的引擎挹注之下，在任何範圍的轉速皆能充分發揮其卓越的效能；專注於蜿蜒道路所設計出的車體，不論是在賽道上、山路中、乃至於城市騎乘，將會提供駕駛者不亦樂乎的騎乘感受。
+        新式樣Ninja
+        ZX-6R採用了新的傳動結構，即便於低轉速時仍可提供充沛的動力，使其易於騎乘在都市街道和蜿蜒道路上；在電控配備上，搭載了
+        Kawasaki 最新科技：KQS (快速排檔系統)、KTRC (循跡控制系統)、KIBS
+        (智能防煞車鎖死系統)以及動力調整系統，用以協助騎乘者能有更安全的駕駛環境。
+        外觀上賦予了全新 Ninja 家族的設計外觀，使 Ninja ZX-6R
+        創造出獨特且銳利的形象。
+      </p>
+    </article>
+    <div class="lg:mt-6 lg:grid lg:grid-cols-9 lg:gap-x-6">
+      <div class="lg:col-span-6 lg:col-start-3">
+        <h5
+          class="border-dark-gray text-center lg:border-b lg:pb-2 lg:text-32px lg:leading-normal"
+        >
+          規格表
+        </h5>
+        <table class="font-sans-tc lg:mt-6 lg:w-full">
+          <tbody class="[&>*:nth-child(even)]:bg-dark-gray [&>*]:p-4">
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>品牌</td>
+              <td>kawasaki</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td width="50%">車款</td>
+              <td width="50%">ZX-6R</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>最大馬力</td>
+              <td>118.4ps/14,500rpm</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>最大扭力</td>
+              <td>6.3kg-m/10,500rpm</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>引擎型式</td>
+              <td>水冷四行程、DOHC、直列 4 汽缸</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>缸徑 X 行程</td>
+              <td>67 X 42.5 mm</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>壓縮比</td>
+              <td>13.3:1</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>傳動方式</td>
+              <td>六速鏈傳</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>座高</td>
+              <td>850 mm</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>油箱</td>
+              <td>17 L</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>車重</td>
+              <td>190 kg</td>
+            </tr>
+            <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
+              <td>車長 X 車寬 X 車高</td>
+              <td>2040 X 695 X 1150 mm</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-span-3">
+    <div class="sticky top-[86px]">
+      <div class="bg-orange-pink lg:p-4">
+        <div class="flex items-center justify-between text-light-white">
+          <div>
+            <h4 class="text-2xl lg:text-32px lg:leading-normal">
+              銷售聯絡資訊
+            </h4>
+            <p class="text-sm lg:mt-2">有問題請聯絡 !</p>
+          </div>
+          <img src="@/assets/images/bike_icon.svg" />
+        </div>
+      </div>
+      <div class="bg-light-white text-smoke-dark">
+        <h4 class="text-center lg:py-4 lg:text-42px lg:leading-normal">
+          Rent Ride
+        </h4>
+        <a
+          href="mailto:rentride@gmail.com"
+          class="group flex items-center border-smoke-dark lg:gap-x-3 lg:border-b lg:py-8 lg:px-4"
+        >
+          <i class="fa-regular fa-paper-plane lg:text-2xl"></i>
+          <span
+            class="block text-2xl transition-transform duration-300 group-hover:scale-105"
+            >rentride@gmail.com</span
+          >
+        </a>
+        <a
+          href="tel:+0932857448"
+          class="group flex items-center border-smoke-dark lg:gap-x-3 lg:border-b lg:py-8 lg:px-4"
+        >
+          <i class="fa-solid fa-phone-volume lg:text-2xl"></i>
+          <span
+            class="block text-2xl transition-transform duration-300 group-hover:scale-105"
+            >0932857448</span
+          >
+        </a>
+        <div class="lg:py-6 lg:px-4">
+          <a class="btn-primary btn w-full" @click.prevent="">預約賞車</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
