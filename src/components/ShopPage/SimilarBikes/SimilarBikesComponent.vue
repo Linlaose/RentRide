@@ -5,6 +5,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import { Navigation } from 'swiper';
+import { mapActions, mapState } from 'pinia';
+import ShopStore from '@/stores/ShopStore';
 
 export default {
   components: {
@@ -20,6 +22,15 @@ export default {
         spaceBetween: 24,
       },
     };
+  },
+  computed: {
+    ...mapState(ShopStore, ['bike', 'similarBikes']),
+  },
+  methods: {
+    ...mapActions(ShopStore, ['getBikes']),
+  },
+  mounted() {
+    this.getBikes();
   },
 };
 </script>

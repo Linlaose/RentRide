@@ -43,6 +43,15 @@ export default defineStore('shopStore', {
     bike: ({ shopBike }) => {
       return shopBike;
     },
+    similarBikes: ({ originalBikes, shopBike }) => {
+      return originalBikes.filter((item) => {
+        return (
+          item.type === shopBike.type &&
+          item.on_sale === shopBike.on_sale &&
+          item.model !== shopBike.model
+        );
+      });
+    },
   },
   actions: {
     getBikes() {

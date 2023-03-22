@@ -1,37 +1,37 @@
-.swiperTop .swiper-slide {
+[data-swiper='swiperTop'] .swiper-slide {
   height: 600px;
 }
-.swiperTop .swiper-slide img {
+[data-swiper='swiperTop'] .swiper-slide img {
   height: 600px;
   width: 100%;
   object-fit: cover;
 }
 
-.swiperThumbs .swiper-slide {
+[data-swiper='swiperThumbs'] .swiper-slide {
   height: 132px;
 }
 
-.swiperThumbs .swiper-slide img {
+[data-swiper='swiperThumbs'] .swiper-slide img {
   height: 132px;
   width: 100%;
   object-fit: cover;
 }
 
-.swiperThumbs .swiper-slide-visible {
+[data-swiper='swiperThumbs'] .swiper-slide-visible {
   opacity: 0.4;
 }
-.swiperThumbs .swiper-slide-active {
+[data-swiper='swiperThumbs'] .swiper-slide-active {
   opacity: 1;
 }
 
-.swiperThumbs .swiper-button-prev::after {
+[data-swiper='swiperThumbs'] .swiper-button-prev::after {
   content: '\f359';
   font-family: 'Font Awesome 6 free';
   font-weight: 400;
   font-size: 32px;
   color: #f2f2f2;
 }
-.swiperThumbs .swiper-button-next::after {
+[data-swiper='swiperThumbs'] .swiper-button-next::after {
   content: '\f35a';
   font-family: 'Font Awesome 6 free';
   font-weight: 400;
