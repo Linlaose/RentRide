@@ -1,8 +1,8 @@
 <section
-  class="container grid grid-cols-4 border-dark-gray lg:mb-3 lg:mt-12 lg:grid-cols-12 lg:gap-6 lg:border-b lg:pb-20"
+  class="container mt-6 grid grid-cols-4 gap-y-4 border-dark-gray lg:mb-3 lg:mt-12 lg:grid-cols-12 lg:gap-6 lg:border-b lg:pb-20"
 >
   <h3
-    class="col-span-4 flex items-center justify-between text-2xl lg:col-span-12"
+    class="col-span-4 flex items-center justify-between text-2xl text-42px leading-normal lg:col-span-12"
   >
     <div>
       <p class="text-orange-pink">{{ bike.year }} {{ bike.model }}</p>
@@ -15,11 +15,12 @@
   <div class="col-span-9">
     <button
       class="btn flex border-orange-pink bg-orange-pink text-light-white hover:bg-[#FF886E]"
+      @click="addFavorite"
     >
       <i class="fa-regular fa-heart block"></i>
       <span class="ml-2 block">加入收藏</span>
     </button>
-    <div class="lg:mt-6">
+    <div class="mt-4 lg:mt-6">
       <!-- v-bind 沒指定屬性是黑魔法，不知道為什麼但能用 -->
       <swiper
         :modules="modules"
@@ -36,7 +37,7 @@
         :modules="modules"
         v-bind="swiperThumbsOptions"
         :thumbs="{ swiper: thumbsSwiper}"
-        class="swiper swiperThumbs lg:mt-6"
+        class="swiper swiperThumbs mt-4 lg:mt-6"
         data-swiper="swiperThumbs"
       >
         <swiper-slide
@@ -48,21 +49,23 @@
         </swiper-slide>
       </swiper>
     </div>
-    <article class="border-dark-gray lg:mt-6 lg:border-b lg:pb-8">
-      <h4 class="lg:text-42px lg:leading-normal">
+    <article class="mt-4 border-b border-dark-gray pb-4 lg:mt-6 lg:pb-8">
+      <h4 class="mb-2 text-2xl lg:mb-0 lg:text-42px lg:leading-normal">
         {{ bike.model }}<br />
         {{ article.title }}
       </h4>
       <p class="lg:mt-4 lg:text-base" v-html="article.content"></p>
     </article>
-    <div class="lg:mt-6 lg:grid lg:grid-cols-9 lg:gap-x-6">
+    <div
+      class="mt-4 border-b border-dark-gray pb-4 lg:mt-6 lg:grid lg:grid-cols-9 lg:gap-x-6 lg:border-0 lg:pb-0"
+    >
       <div class="lg:col-span-6 lg:col-start-3">
         <h5
           class="border-dark-gray text-center lg:border-b lg:pb-2 lg:text-32px lg:leading-normal"
         >
           規格表
         </h5>
-        <table class="font-sans-tc lg:mt-6 lg:w-full">
+        <table class="font-sans-tc mt-2 md:mx-auto md:w-fit lg:mt-6 lg:w-full">
           <tbody class="[&>*:nth-child(even)]:bg-dark-gray [&>*]:p-4">
             <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
               <td width="50%">品牌</td>
@@ -90,7 +93,7 @@
             </tr>
             <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
               <td>缸徑 X 行程</td>
-              <td>{{ bike.bore }} X {{ bike.stroke }} mm</td>
+              <td>{{ bike.bore }} X {{ bike.stroke }}</td>
             </tr>
             <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
               <td>壓縮比</td>
@@ -102,7 +105,7 @@
             </tr>
             <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
               <td>座高</td>
-              <td>{{ bike.seat_height }} mm</td>
+              <td>{{ bike.seat_height }}</td>
             </tr>
             <tr class="[&>*:first-child]:py-2 [&>*:first-child]:text-center">
               <td>油箱</td>
@@ -123,26 +126,30 @@
       </div>
     </div>
   </div>
-  <div class="col-span-3">
+  <div class="col-span-4 lg:col-span-3">
     <div class="sticky top-[86px]">
       <div class="bg-orange-pink lg:p-4">
-        <div class="flex items-center justify-between text-light-white">
+        <div
+          class="items-center justify-between p-4 text-light-white lg:flex lg:p-0"
+        >
           <div>
             <h4 class="text-2xl lg:text-32px lg:leading-normal">
               銷售聯絡資訊
             </h4>
             <p class="text-sm lg:mt-2">有問題請聯絡 !</p>
           </div>
-          <img src="@/assets/images/bike_icon.svg" />
+          <img class="hidden lg:block" src="@/assets/images/bike_icon.svg" />
         </div>
       </div>
       <div class="bg-light-white text-smoke-dark">
-        <h4 class="text-center lg:py-4 lg:text-42px lg:leading-normal">
+        <h4
+          class="border-b border-smoke-dark py-4 text-center text-32px leading-normal lg:border-0 lg:text-42px"
+        >
           Rent Ride
         </h4>
         <a
           href="mailto:rentride@gmail.com"
-          class="group flex items-center border-smoke-dark lg:gap-x-3 lg:border-b lg:py-8 lg:px-4"
+          class="group flex items-center gap-x-3 border-smoke-dark px-4 pt-2 lg:border-b lg:py-8"
         >
           <i class="fa-regular fa-paper-plane lg:text-2xl"></i>
           <span
@@ -152,7 +159,7 @@
         </a>
         <a
           href="tel:+0932857448"
-          class="group flex items-center border-smoke-dark lg:gap-x-3 lg:border-b lg:py-8 lg:px-4"
+          class="group flex items-center gap-x-3 border-smoke-dark px-4 pt-2 lg:border-b lg:py-8"
         >
           <i class="fa-solid fa-phone-volume lg:text-2xl"></i>
           <span
@@ -160,8 +167,10 @@
             >0932857448</span
           >
         </a>
-        <div class="lg:py-6 lg:px-4">
-          <a class="btn-primary btn w-full" @click.prevent="">預約賞車</a>
+        <div class="p-4 lg:py-6 lg:px-4">
+          <a class="btn-primary btn w-full" @click.prevent="checkUser(bike.id)"
+            >預約賞車</a
+          >
         </div>
       </div>
     </div>

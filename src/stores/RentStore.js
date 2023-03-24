@@ -28,7 +28,6 @@ export default defineStore('rentStore', {
       return originalBikes.filter((item) => {
         return Object.entries(options).every(([key, value]) => {
           if (key === 'date' && value !== '') {
-            // return item.rent_date > value[1] || item[key] !== value;
             if (item.rent_date !== null && item.return_date !== null) {
               return item.rent_date > value[1] || item.return_date < value[0];
             }

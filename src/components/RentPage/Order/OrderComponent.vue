@@ -15,17 +15,25 @@ export default {
       },
       totalRent: null,
       data: {},
+      favoriteData: {},
       updateData: {},
       dateSpan: null,
       formattedDate: {
         rent: null,
         return: null,
       },
+      favorites: [],
     };
   },
   computed: {
     ...mapState(RentStore, ['orderBike', 'rentDate', 'returnDate', 'VITE_URL']),
     ...mapState(LoginModalStore, ['isLoggedIn', 'user']),
+    catchFavorite() {
+      // 為了看要租的車有沒有在已收藏名單內
+      return this.favorites.filter((item) => {
+        return item.bike_id === this.orderBike.id;
+      });
+    },
   },
   methods: {
     ...mapActions(RentStore, ['getBike']),
@@ -97,12 +105,53 @@ export default {
               rent_date: new Date(this.tempDate.rent).getTime(),
               return_date: this.returnDate,
             };
-            this.callAll(
-              addOrderUrl,
-              updateBikeUrl,
-              this.data,
-              this.updateData
-            );
+            if (this.catchFavorite.length > 0) {
+              // 要租的車在已收藏的名單內，就直接租車
+              this.callAll(
+                addOrderUrl,
+                updateBikeUrl,
+                this.data,
+                this.updateData
+              );
+            } else {
+              // 要租的車不在已收藏的名單內，問問是否收藏
+              this.$swal({
+                title: '要加入收藏嗎 ?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: '加入',
+                reverseButtons: true,
+              }).then((result) => {
+                if (!result.isConfirmed) {
+                  // 不加入收藏，直接租車
+                  this.callAll(
+                    addOrderUrl,
+                    updateBikeUrl,
+                    this.data,
+                    this.updateData
+                  );
+                } else {
+                  // 加入收藏
+                  this.$swal({
+                    position: 'center',
+                    icon: 'success',
+                    title: '收藏成功！',
+                    showConfirmButton: false,
+                    timer: 1000,
+                  }).then(() => {
+                    // 加入收藏
+                    this.addFavorite(this.user.id);
+                    // 租車
+                    this.callAll(
+                      addOrderUrl,
+                      updateBikeUrl,
+                      this.data,
+                      this.updateData
+                    );
+                  });
+                }
+              });
+            }
           } else if (this.tempDate.return && !this.tempDate.rent) {
             // 已選租車日期但只修改還車日期
             this.data = {
@@ -117,13 +166,53 @@ export default {
               rent_date: this.rentDate,
               return_date: new Date(this.tempDate.return).getTime(),
             };
-
-            this.callAll(
-              addOrderUrl,
-              updateBikeUrl,
-              this.data,
-              this.updateData
-            );
+            if (this.catchFavorite.length > 0) {
+              // 要租的車在已收藏的名單內，就直接租車
+              this.callAll(
+                addOrderUrl,
+                updateBikeUrl,
+                this.data,
+                this.updateData
+              );
+            } else {
+              // 要租的車不在已收藏的名單內，問問是否收藏
+              this.$swal({
+                title: '要加入收藏嗎 ?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: '加入',
+                reverseButtons: true,
+              }).then((result) => {
+                if (!result.isConfirmed) {
+                  // 不加入收藏，直接租車
+                  this.callAll(
+                    addOrderUrl,
+                    updateBikeUrl,
+                    this.data,
+                    this.updateData
+                  );
+                } else {
+                  // 加入收藏
+                  this.$swal({
+                    position: 'center',
+                    icon: 'success',
+                    title: '收藏成功！',
+                    showConfirmButton: false,
+                    timer: 1000,
+                  }).then(() => {
+                    // 加入收藏
+                    this.addFavorite(this.user.id);
+                    // 租車
+                    this.callAll(
+                      addOrderUrl,
+                      updateBikeUrl,
+                      this.data,
+                      this.updateData
+                    );
+                  });
+                }
+              });
+            }
           } else {
             this.data = {
               userId: this.user.id,
@@ -137,16 +226,56 @@ export default {
               rent_date: this.rentDate,
               return_date: this.returnDate,
             };
-
-            this.callAll(
-              addOrderUrl,
-              updateBikeUrl,
-              this.data,
-              this.updateData
-            );
+            if (this.catchFavorite.length > 0) {
+              // 要租的車在已收藏的名單內，就直接租車
+              this.callAll(
+                addOrderUrl,
+                updateBikeUrl,
+                this.data,
+                this.updateData
+              );
+            } else {
+              // 要租的車不在已收藏的名單內，問問是否收藏
+              this.$swal({
+                title: '要加入收藏嗎 ?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: '加入',
+                reverseButtons: true,
+              }).then((result) => {
+                if (!result.isConfirmed) {
+                  // 不加入收藏，直接租車
+                  this.callAll(
+                    addOrderUrl,
+                    updateBikeUrl,
+                    this.data,
+                    this.updateData
+                  );
+                } else {
+                  // 加入收藏
+                  this.$swal({
+                    position: 'center',
+                    icon: 'success',
+                    title: '收藏成功！',
+                    showConfirmButton: false,
+                    timer: 1000,
+                  }).then(() => {
+                    // 加入收藏
+                    this.addFavorite(this.user.id);
+                    // 租車
+                    this.callAll(
+                      addOrderUrl,
+                      updateBikeUrl,
+                      this.data,
+                      this.updateData
+                    );
+                  });
+                }
+              });
+            }
           }
         } else if (this.tempDate.rent && this.tempDate.return) {
-          // 在租車頁面已經未選租車日期，而在訂單頁面才選定
+          // 在租車頁面未選租車日期，而在訂單頁面才選定
           this.data = {
             userId: this.user.id,
             pick_up: new Date(this.tempDate.rent).getTime(),
@@ -160,7 +289,55 @@ export default {
             return_date: new Date(this.tempDate.return).getTime(),
           };
 
-          this.callAll(addOrderUrl, updateBikeUrl, this.data, this.updateData);
+          if (this.catchFavorite.length > 0) {
+            // 要租的車在已收藏的名單內，就直接租車
+            this.callAll(
+              addOrderUrl,
+              updateBikeUrl,
+              this.data,
+              this.updateData
+            );
+          } else {
+            // 要租的車不在已收藏的名單內，問問是否收藏
+            this.$swal({
+              title: '要加入收藏嗎 ?',
+              icon: 'question',
+              showCancelButton: true,
+              confirmButtonText: '加入',
+              reverseButtons: true,
+            }).then((result) => {
+              if (!result.isConfirmed) {
+                // 不加入收藏，直接租車
+                this.callAll(
+                  addOrderUrl,
+                  updateBikeUrl,
+                  this.data,
+                  this.updateData
+                );
+              } else {
+                // 加入收藏
+                this.$swal({
+                  position: 'center',
+                  icon: 'success',
+                  title: '收藏成功！',
+                  showConfirmButton: false,
+                  timer: 1000,
+                }).then(() => {
+                  // 加入收藏
+                  this.addFavorite(this.user.id);
+                  // 租車
+                  this.callAll(
+                    addOrderUrl,
+                    updateBikeUrl,
+                    this.data,
+                    this.updateData
+                  );
+                });
+              }
+            });
+          }
+
+          // this.callAll(addOrderUrl, updateBikeUrl, this.data, this.updateData);
         }
       }
     },
@@ -202,6 +379,45 @@ export default {
         this.totalRent = this.orderBike.rent_price;
       }
     },
+    getFavorites(id) {
+      const VITE_PATH = 'favorites';
+      const url = `${this.VITE_URL}/users/${id}/${VITE_PATH}`;
+
+      this.$http
+        .get(url)
+        .then((res) => {
+          const { data } = res;
+          this.favorites = data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    addFavorite() {
+      const VITE_PATH = 'favorites';
+      const url = `${this.VITE_URL}/${VITE_PATH}`;
+
+      const { make, type, year, model, grade, id, imgUrl } = this.orderBike;
+      this.favoriteData = {
+        bike_brand: make,
+        bike_type: type,
+        bike_year: year,
+        bike_model: model,
+        bike_grade: grade,
+        bike_id: id,
+        imgUrl,
+        userId: this.user.id,
+      };
+
+      this.$http
+        .post(url, this.favoriteData)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          alert(err.response.data);
+        });
+    },
   },
   mounted() {
     this.getBike(this.$route.params.id);
@@ -213,6 +429,7 @@ export default {
       this.renderBirth();
     }
     this.calcDateSpan(this.rentDate, this.returnDate);
+    this.getFavorites(this.user.id);
   },
   watch: {
     user(newVal) {

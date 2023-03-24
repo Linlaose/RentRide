@@ -18,8 +18,18 @@ export default {
       modules: [Navigation],
       swiperOptions: {
         navigation: true,
-        slidesPerView: 3,
-        spaceBetween: 24,
+        slidesPerView: 1,
+        spaceBetween: 12,
+        breakpoints: {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 12,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 24,
+          },
+        },
       },
     };
   },

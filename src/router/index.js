@@ -43,6 +43,11 @@ const router = createRouter({
       name: 'shopBike',
       component: () => import('@/views/ShopBike/ShopBikeView.vue'),
     },
+    {
+      path: '/shop/shopOrder/:id',
+      name: 'shopOrder',
+      component: () => import('@/views/ShopOrder/ShopOrderView.vue'),
+    },
   ],
   scrollBehavior() {
     return {

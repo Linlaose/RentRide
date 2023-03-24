@@ -22,7 +22,11 @@
             class="dropdown-content menu rounded-box w-52 bg-base-100 p-2 shadow"
           >
             <li>
-              <a class="text-smoke-dark active:bg-orange-pink">會員中心</a>
+              <router-link
+                :to="`/user/${user.id}`"
+                class="text-smoke-dark active:bg-orange-pink"
+                >會員中心</router-link
+              >
             </li>
             <li>
               <a

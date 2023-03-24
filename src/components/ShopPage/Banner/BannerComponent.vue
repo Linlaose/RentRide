@@ -14,6 +14,11 @@ export default {
       this.getBike(this.$route.params.id);
     }
   },
+  watch: {
+    $route() {
+      this.getBike(this.$route.params.id);
+    },
+  },
 };
 </script>
 

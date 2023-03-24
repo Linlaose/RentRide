@@ -1,0 +1,84 @@
+<section class="container my-10 lg:my-20">
+  <div class="grid lg:grid-cols-12 lg:gap-6">
+    <v-form
+      class="grid gap-4 lg:col-span-4 lg:col-start-5"
+      v-slot="errors"
+      @submit="onSubmit"
+      :validation-schema="orderSchema"
+    >
+      <div class="flex gap-3">
+        <div class="flex-1">
+          <label for="name" class="block w-full">姓名</label>
+          <v-field
+            id="name"
+            type="text"
+            label="姓名"
+            name="name"
+            class="input w-full text-smoke-dark lg:mt-2"
+          />
+          <span class="mx-auto block w-fit text-orange-pink"
+            >{{ errors.errors.name }}</span
+          >
+        </div>
+        <div class="flex-1">
+          <label for="tel" class="block w-full">電話</label>
+          <v-field
+            id="tel"
+            type="tel"
+            name="tel"
+            class="input w-full text-smoke-dark lg:mt-2"
+          />
+          <span class="mx-auto block w-fit text-orange-pink"
+            >{{ errors.errors.tel }}</span
+          >
+        </div>
+      </div>
+      <v-date-picker
+        :min-date="new Date()"
+        v-model="date"
+        mode="dateTime"
+        :masks="masks"
+        is24hr
+      >
+        <template v-slot="{ inputValue, inputEvents }" class="">
+          <label for="date" class="block">賞車時間</label>
+          <input
+            id="date"
+            class="h-12 w-full rounded-lg border bg-light-white px-2 py-1 text-smoke-dark"
+            :value="inputValue"
+            v-on="inputEvents"
+            name="date"
+          />
+          <span
+            v-if="date.getTime() <= new Date().getTime() + 7200000"
+            class="mx-auto block w-fit text-orange-pink"
+            >{{ errors.errors.date }}</span
+          >
+        </template>
+      </v-date-picker>
+      <div class="flex flex-col">
+        <label for="tel">車款</label>
+        <input
+          id="tel"
+          type="tel"
+          :value="`${bike.year} ${bike.model}`"
+          class="input disabled:bg-light-white disabled:text-dark-gray lg:mt-2"
+          disabled
+        />
+      </div>
+      <div>
+        <img :src="bike.imgUrl" class="mx-auto" />
+      </div>
+      <div class="flex gap-3">
+        <button
+          type="button"
+          class="btn-outline btn-primary btn flex-1 bg-light-white text-light-purple"
+          @click="$router.push('/shop/')"
+        >
+          取消
+        </button>
+        <button class="btn-primary btn flex-1">確認</button>
+      </div>
+    </v-form>
+  </div>
+</section>

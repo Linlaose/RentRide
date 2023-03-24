@@ -1,16 +1,16 @@
-<section class="container relative lg:mb-20">
+<section class="container relative mt-6 mb-10 lg:mb-20 lg:mt-0">
   <div v-if="similarBikes.length>0">
     <h5 class="absolute">相似的車型還有...</h5>
-    <div class="absolute top-1 right-[88px] z-10 h-6 w-1 bg-white"></div>
+
     <swiper
       :modules="modules"
       v-bind="swiperOptions"
       data-swiper="similarSwiper"
-      class="lg:h-[800px]"
+      class="h-[550px] lg:h-[800px]"
     >
       <swiper-slide v-for="bike in similarBikes" :key="bike.id">
         <div
-          class="group relative bg-light-white transition-shadow duration-300 lg:h-full"
+          class="group relative h-full bg-light-white transition-shadow duration-300"
         >
           <div class="flex justify-between p-3 lg:p-10">
             <h5 class="text-smoke-dark">{{ bike.model }}</h5>
@@ -18,7 +18,7 @@
           </div>
           <div class="overflow-hidden bg-light-gray lg:h-[320px] lg:py-6">
             <img
-              class="mx-auto object-cover transition-transform duration-500 lg:h-full"
+              class="mx-auto h-60 object-cover transition-transform duration-500 lg:h-full"
               :src="bike.imgUrl"
             />
           </div>
@@ -60,12 +60,15 @@
           </div>
           <router-link
             :to="`/shop/motorcycles/${bike.id}`"
-            class="absolute inset-0 bg-smoke-dark/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            class="absolute inset-0 bg-smoke-dark/50 opacity-0 transition-opacity duration-300 group-active:opacity-100 lg:group-hover:opacity-100"
           >
             <span class="position-center absolute">查看更多</span>
           </router-link>
         </div>
       </swiper-slide>
+      <div
+        class="absolute top-1 right-[46px] z-10 h-6 w-1 bg-white sm:right-[76px] lg:right-[78px]"
+      ></div>
     </swiper>
   </div>
   <div v-else class="h-[30vh]">

@@ -153,7 +153,7 @@ export default {
     this.scroller();
     setTimeout(() => {
       ScrollTrigger.refresh();
-    }, 1000);
+    }, 1500);
     window.addEventListener('scroll', this.getScrollHeight);
   },
 };
