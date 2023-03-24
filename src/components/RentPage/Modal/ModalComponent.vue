@@ -18,19 +18,28 @@ export default {
   },
   computed: {
     ...mapState(RentStore, ['tempBike', 'VITE_URL']),
-    ...mapState(LoginModalStore, ['user']),
+    ...mapState(LoginModalStore, ['user', 'isLoggedIn']),
   },
   methods: {
     scrollVisible() {
       document.body.style.overflow = 'visible';
     },
     addFavorite() {
-      this.isFavorite = !this.isFavorite;
-      setTimeout(() => {
-        // 當作切換 icon 與文字內容的樣式
+      if (!this.isLoggedIn) {
+        this.$swal({
+          icon: 'error',
+          title: '請先登入',
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      } else {
         this.isFavorite = !this.isFavorite;
-      }, 1000);
-      this.debouncedFunc();
+        setTimeout(() => {
+          // 當作切換 icon 與文字內容的樣式
+          this.isFavorite = !this.isFavorite;
+        }, 1000);
+        this.debouncedFunc();
+      }
     },
   },
   mounted() {
