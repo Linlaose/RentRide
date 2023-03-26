@@ -1,21 +1,159 @@
-# Vue side project
+# Rent Ride
 
-2023/03/07
+> 歡迎來到 Rent Ride，一個以 Vue3 + Pinia 製作的重機租車網
 
-- preloader 在 safari 上，loading 時會停止旋轉
+![首頁](https://imgur.com/ewn1hIF.png)
 
-- 首頁 Selection 區塊
-- 在手機版，單行且垂直滾動要可以換頁
-- 在電腦版，Hover 秀出左右鍵，單台車點擊後 Modal 基本資訊
-- 加上篩選，等級
-- 刪掉原本的 Hover 效果和 PREV | NEXT
+## Demo
 
-- preloader 可以嘗試將狀態以及方法放入 pinia 做管理，替代 :key 的方式，藉此增加效能
+---
 
-2023/03/11
+https://linlaose.github.io/RentRide/#/
 
-- rentOrder 的頁面大致完成，後面做好會員功能，有會員資料之後再回來補渲染，而且資料庫還要加上假日加價
+## 簡介
 
-2023/03/17
+---
 
-- banner 看有沒有辦法以 $route.path 之類的方法選定不同路由顯示不同內容，這樣就可以合併一個 banner
+重機是本人感興趣的主題，正好作為 Vue3 前端技術練習，其主要功能如下：
+
+- 前台:
+  1. 最新消息
+  2. 租賃車種總覽 (搜尋車種、單一車款介紹等)
+  3. 重機販售
+  4. 預約租車/賞車
+  5. 加入收藏
+- 後台: 頁面製作當中
+
+## 使用技術
+
+---
+
+- 設計:
+
+  - Figma => [設計稿連結](https://www.figma.com/file/ybOB9cYwU7M4g7waa290lZ/RentRide?node-id=0-1&t=XF3iV9zNB0v8TPb6-0)
+
+- 前台:
+
+  - Vue3
+  - VueRouter
+  - Pinia
+  - JavaScript(ES6)
+  - RWD
+  - TailwindCSS
+  - Vite
+  - ESlint(airbnb)
+  - prettier
+
+- 模擬資料庫:
+  - json-server-auth
+  - vercel
+
+## 使用 Plugin
+
+---
+
+- [Font Awesome](https://fontawesome.com/icons)
+- [axios](https://github.com/axios/axios)
+- [Vee-validate](https://vee-validate.logaretm.com/v4/guide/overview/)
+- [Swiper](https://swiperjs.com/)
+- [GSAP](https://greensock.com/gsap/)
+- [date-fn](https://date-fns.org/)
+- [V-calendar](https://vcalendar.io/)
+- [Vue-datepicker](https://vue3datepicker.com/)
+- [Vue-kinesis](https://www.aminerman.com/kinesis/?ref=madewithvuejs.com#/)
+- [Lodash](https://lodash.com/)
+- [sweetalert2](https://sweetalert2.github.io/)
+- [daisyUI](https://daisyui.com/)
+
+## 前端頁面介紹
+
+---
+
+## Preloader
+
+---
+
+![Preloader](https://imgur.com/jsIX91h.gif)
+
+## 首頁畫面
+
+---
+
+### Banner
+
+![Banner](https://imgur.com/UFYFHNy.gif)
+
+### 最新消息
+
+![News](https://imgur.com/ngF9qMJ.gif)
+
+### 前三名熱租車款
+
+![top-bikes](https://i.imgur.com/fClHbCX.gif)
+
+## 會員中心頁
+
+---
+
+![會員中心](https://imgur.com/zwohliO.png)
+
+## 最新消息頁面
+
+---
+
+![news](https://imgur.com/DIFDet8.png)
+
+## 租車頁面
+
+---
+
+### 租車總覽
+
+![租車總覽](https://imgur.com/ut5U7TG.png)
+
+### 租車詳情
+
+![租車詳情](https://imgur.com/l8kTj3t.png)
+
+### 確認租車
+
+![確認租車](https://imgur.com/qotOuAb.png)
+
+## 重機商城頁面
+
+---
+
+### 販售車輛總覽
+
+![車輛總覽](https://imgur.com/dknUWAV.png)
+
+### 車輛詳情
+
+![車輛詳情](https://imgur.com/qzXWcPW.png)
+
+### 相似車型列表
+
+![相似車型](https://imgur.com/pHghYef.png)
+
+## 開發時程
+
+- 設計稿繪製 - 20 小時
+- 首頁開發 - 66 小時
+- 會員功能 (含會員中心、登入註冊) - 17 小時
+- 最新消息頁 - 6 小時
+- 租車頁 - 30 小時
+- 重機商城頁 - 24 小時
+
+## 聲明
+
+---
+
+本作品內圖片、內容等，純粹為個人練習前端使用，不做任何商業用途。
+
+## 作品心得
+
+---
+
+這一次從設計、前台開發、模擬資料庫都是一人製作，在開發上甚感困難，作品盡可能完善使用者體驗，但還有些缺陷，後續會進行優化。
+
+本次第一版完成時間為 2023/03/24
