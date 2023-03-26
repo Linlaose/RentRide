@@ -6,13 +6,9 @@
 
 ## Demo
 
----
-
 https://linlaose.github.io/RentRide/#/
 
 ## 簡介
-
----
 
 重機是本人感興趣的主題，正好作為 Vue3 前端技術練習，其主要功能如下：
 
@@ -25,8 +21,6 @@ https://linlaose.github.io/RentRide/#/
 - 後台: 頁面製作當中
 
 ## 使用技術
-
----
 
 - 設計:
 
@@ -50,8 +44,6 @@ https://linlaose.github.io/RentRide/#/
 
 ## 使用 Plugin
 
----
-
 - [Font Awesome](https://fontawesome.com/icons)
 - [axios](https://github.com/axios/axios)
 - [Vee-validate](https://vee-validate.logaretm.com/v4/guide/overview/)
@@ -67,17 +59,11 @@ https://linlaose.github.io/RentRide/#/
 
 ## 前端頁面介紹
 
----
-
 ## Preloader
-
----
 
 ![Preloader](https://imgur.com/jsIX91h.gif)
 
 ## 首頁畫面
-
----
 
 ### Banner
 
@@ -93,19 +79,13 @@ https://linlaose.github.io/RentRide/#/
 
 ## 會員中心頁
 
----
-
 ![會員中心](https://imgur.com/zwohliO.png)
 
 ## 最新消息頁面
 
----
-
 ![news](https://imgur.com/DIFDet8.png)
 
 ## 租車頁面
-
----
 
 ### 租車總覽
 
@@ -121,8 +101,6 @@ https://linlaose.github.io/RentRide/#/
 
 ## 重機商城頁面
 
----
-
 ### 販售車輛總覽
 
 ![車輛總覽](https://imgur.com/dknUWAV.png)
@@ -136,8 +114,6 @@ https://linlaose.github.io/RentRide/#/
 ![相似車型](https://imgur.com/pHghYef.png)
 
 ## 開發時程
-
----
 
 - 設計稿繪製 - 20 小時
 - 首頁開發 - 66 小時
@@ -153,7 +129,5 @@ https://linlaose.github.io/RentRide/#/
 本作品內圖片、內容等，純粹為個人練習前端使用，不做任何商業用途。
 
 ## 作品心得
-
----
 
 這一次從設計、前台開發、模擬資料庫都是一人製作，在開發上甚感困難，作品盡可能完善使用者體驗，後續會進行優化。
