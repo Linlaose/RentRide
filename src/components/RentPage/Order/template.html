@@ -18,6 +18,7 @@
           <v-date-picker
             v-else
             v-model="tempDate.rent"
+            :min-date="new Date()"
             mode="date"
             :masks="masks"
             class="py-2 lg:py-0"
@@ -44,6 +45,7 @@
             v-else
             v-model="tempDate.return"
             mode="date"
+            :min-date="new Date()"
             :masks="masks"
             class=" py-2 lg:py-0"
           >
