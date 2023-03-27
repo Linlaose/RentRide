@@ -54,7 +54,7 @@ export default {
   methods: {
     ...mapActions(LoginModalStore, ['login']),
     scrollVisible() {
-      document.body.style.overflow = 'visible';
+      document.body.style.overflowY = 'visible';
     },
     isPhone(value) {
       const phoneNumber = /^(09)[0-9]{8}$/;
