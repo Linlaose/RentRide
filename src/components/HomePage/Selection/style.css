@@ -56,6 +56,9 @@
   [data-swiper='rentBikeSwiper']:hover .swiper-button-next {
     opacity: 1;
   }
+  [data-swiper='rentBikeSwiper'] .swiper-button-next {
+    opacity: 0;
+  }
   [data-swiper='rentBikeSwiper'] .swiper-button-next.swiper-button-disabled {
     opacity: 0;
   }
