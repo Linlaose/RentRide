@@ -45,7 +45,6 @@
           <router-link
             :to="`/news/${newsItem.id}`"
             class="absolute inset-0"
-            @click.prevent="testId(newsItem.title)"
           ></router-link>
         </kinesis-element>
         <kinesis-element
@@ -70,16 +69,16 @@
             <p class="pt-3">{{ newsItem.description }}</p>
             <div class="text-end">
               <button type="button" class="mt-4 inline-block w-36">
-                <a
-                  class="btn-solid-clip block py-2 text-lg text-light-white"
-                  href="./template.html"
-                >
+                <a class="btn-solid-clip block py-2 text-lg text-light-white">
                   了解更多
                 </a>
               </button>
             </div>
           </div>
-          <a href="./template.html" class="absolute inset-0"></a>
+          <router-link
+            :to="`/news/${newsItem.id}`"
+            class="absolute inset-0"
+          ></router-link>
         </div>
         <div
           class="absolute top-2 left-2 h-full w-full border-2 border-blue-gray"

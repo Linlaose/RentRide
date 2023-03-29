@@ -29,9 +29,6 @@ export default {
           alert('Oops ! 有點狀況');
         });
     },
-    testId(id) {
-      console.log(id);
-    },
   },
   mounted() {
     this.getNews(this.VITE_URL, this.VITE_PATH);
