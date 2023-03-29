@@ -16,20 +16,11 @@
         </router-link>
       </button>
     </div>
-    <div class="mt-10 h-[880px]">
+    <div class="mt-10 h-[440px] lg:h-[880px]">
       <swiper
-        :navigation="true"
         :modules="modules"
-        :slidesPerView="1"
-        :spaceBetween="30"
-        :grid="{rows: 2}"
-        :breakpoints="{
-          '1024': {
-            slidesPerView: 3,
-          }
-        }"
+        v-bind="swiperOptions"
         @swiper="onSwiper"
-        @slideChange="onSlideChange"
         data-swiper="rentBikeSwiper"
       >
         <swiper-slide
@@ -37,51 +28,35 @@
           v-for="bike in bikes"
         >
           <div class="relative flex h-full flex-col justify-between lg:z-20">
-            <p class="word-spacing-4 text-base text-smoke-dark/40">
-              {{bike.year}} - Manual - Petrol - {{bike.displacement}}
+            <p class="word-spacing-4 text-center text-base text-smoke-dark/40">
+              {{bike.year}} - Manual - Petrol - {{bike.displacement}}cc
             </p>
-            <div
-              class="absolute left-0 right-0 bottom-0 text-2xl transition-all duration-300 lg:group-hover:bottom-4 lg:group-hover:opacity-0"
-            >
+            <div class="text-2xl">
               <p class="text-start">{{bike.model}}</p>
               <p class="flex justify-between">
                 <span class="block">{{bike.maxRPM}} RPM</span>
                 <span class="block">Grade {{bike.grade}}</span>
               </p>
             </div>
-            <div
-              class="absolute left-0 right-0 bottom-8 hidden justify-center gap-4 opacity-0 transition-all duration-300 group-hover:bottom-4 group-hover:z-10 group-hover:opacity-100 lg:flex"
-            >
-              <a
-                href="./template.html"
-                class="relative inline-block w-10 rounded-sm border border-light-white p-2 transition-all duration-300 hover:border-transparent hover:bg-orange-pink"
-              >
-                <img
-                  class="position-center absolute !h-1/2 !w-auto"
-                  src="@/assets/images/icon_favorite.svg"
-                />
-              </a>
-              <a
-                href="./template1.html"
-                class="inline-block w-10 rounded-sm border border-light-white p-2 transition-all duration-300 hover:border-transparent hover:bg-orange-pink"
-              >
-                <img src="@/assets/images/icon_calendar.svg" />
-              </a>
-            </div>
           </div>
           <div
             class="absolute top-1/2 left-1/2 z-10 w-full -translate-x-1/2 -translate-y-1/2 sm:w-[80%]"
           >
-            <img :src="bike.imgUrl" />
+            <img
+              :src="bike.imgUrl"
+              class="transition-transform duration-300 group-active:scale-110 lg:group-hover:scale-110 lg:group-active:scale-100"
+            />
           </div>
           <div
             class="absolute top-55% left-1/2 w-full -translate-x-1/2 -translate-y-1/2 px-4"
           >
             <img src="@/assets/images/triangle.svg" />
           </div>
-          <a href="#" class="absolute inset-0 z-10 lg:z-auto"></a>
+          <router-link
+            :to="`/rentOrder/${bike.id}`"
+            class="absolute inset-y-0 inset-x-[30%] z-10 lg:inset-0 lg:z-30"
+          ></router-link>
         </swiper-slide>
-        <div class="absolute bottom-0 right-[68px] z-10 h-6 w-1 bg-white"></div>
       </swiper>
     </div>
   </div>

@@ -3,14 +3,15 @@
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 64px;
   color: #0d0d0d;
 }
 
-[data-swiper='rentBikeSwiper'] .swiper-slide {
-  height: calc((100% - 30px) / 2) !important;
-  text-align: center;
-  font-size: 18px;
+@media (width >= 1024px) {
+  [data-swiper='rentBikeSwiper'] .swiper-slide {
+    height: calc((100% - 30px) / 2) !important;
+    text-align: center;
+    font-size: 18px;
+  }
 }
 
 [data-swiper='rentBikeSwiper'] .swiper-slide img {
@@ -21,34 +22,43 @@
 }
 
 [data-swiper='rentBikeSwiper'] .swiper-button-prev {
-  width: auto;
-  height: auto;
-  top: auto;
-  bottom: 0;
-  right: 80px;
-  left: auto;
+  top: 50%;
+  transition: opacity 500ms;
 }
-
 [data-swiper='rentBikeSwiper'] .swiper-button-prev::after {
-  content: 'PREV';
-  font-family: 'Bakbak One';
-  font-size: 24px;
-  color: #fff;
+  content: '\f359';
+  font-family: 'Font Awesome 6 free';
+  font-weight: 400;
+  font-size: 48px;
+  color: #f26e50;
+}
+@media (width >= 1024px) {
+  [data-swiper='rentBikeSwiper']:hover .swiper-button-prev {
+    opacity: 1;
+  }
+  [data-swiper='rentBikeSwiper'] .swiper-button-prev.swiper-button-disabled {
+    opacity: 0;
+  }
 }
 
 [data-swiper='rentBikeSwiper'] .swiper-button-next {
-  width: auto;
-  height: auto;
-  top: auto;
-  bottom: 0;
-  right: 0;
+  top: 50%;
+  transition: opacity 500ms;
 }
-
 [data-swiper='rentBikeSwiper'] .swiper-button-next::after {
-  content: 'NEXT';
-  font-family: 'Bakbak One';
-  font-size: 24px;
-  color: #fff;
+  content: '\f35a';
+  font-family: 'Font Awesome 6 free';
+  font-weight: 400;
+  font-size: 48px;
+  color: #f26e50;
+}
+@media (width >= 1024px) {
+  [data-swiper='rentBikeSwiper']:hover .swiper-button-next {
+    opacity: 1;
+  }
+  [data-swiper='rentBikeSwiper'] .swiper-button-next.swiper-button-disabled {
+    opacity: 0;
+  }
 }
 
 .word-spacing-4 {

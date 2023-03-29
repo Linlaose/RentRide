@@ -20,15 +20,27 @@ export default {
       bikes: [],
       VITE_URL: import.meta.env.VITE_URL,
       VITE_PATH: 'motorcycles',
+      swiperOptions: {
+        navigation: true,
+        slidesPerView: 1,
+        spaceBetween: 30,
+        grid: {
+          rows: 1,
+        },
+        breakpoints: {
+          1024: {
+            slidesPerView: 3,
+            grid: {
+              rows: 2,
+            },
+          },
+        },
+      },
     };
   },
   methods: {
     onSwiper(swiper) {
       this.rentBikeSwiper = { ...swiper };
-      console.log(swiper);
-    },
-    onSlideChange() {
-      console.log('Slide change');
     },
     getBikes() {
       const url = `${this.VITE_URL}/${this.VITE_PATH}`;
