@@ -178,7 +178,6 @@ export default {
           const data = res.map((item) => item.data);
           // 將 data 的 item 解構賦值為新的物件變數
           const [top1Data, top2Data, top3Data] = data;
-          console.log(top1Data);
 
           /* 
           把變數的特定屬性存入已定義的空物件中，這些物件不能直接作為渲染，
