@@ -10,7 +10,7 @@
     class="container my-10 grid gap-6 md:grid-cols-4 lg:my-20 lg:grid-cols-12"
   >
     <div
-      v-for="bike in bikes"
+      v-for="bike in hotBikes"
       :key="bike.id"
       class="card bg-base-100 shadow-xl md:col-span-2 lg:col-span-4"
     >
@@ -18,6 +18,15 @@
         <h2 class="card-title text-smoke-dark">
           {{bike.year}} {{bike.model}} - {{bike.grade}} 級車
         </h2>
+        <div
+          v-if="bike.rank"
+          class="absolute -top-[10px] -right-[10px] h-[150px] w-[150px] overflow-hidden before:absolute before:top-0 before:left-[42px] before:block before:border-[5px] before:border-orange-pink before:border-r-transparent before:border-t-transparent before:content-[''] after:absolute after:right-0 after:bottom-[42px] after:block after:border-[5px] after:border-orange-pink after:border-t-transparent after:border-r-transparent after:content-['']"
+        >
+          <span
+            class="absolute left-4 top-3 block w-[200px] rotate-45 select-none bg-orange-pink py-3 text-center text-xl text-light-white"
+            >TOP {{bike.rank}}</span
+          >
+        </div>
         <div class="position-center absolute z-10 w-full sm:w-[80%]">
           <img class="w-full" :src="bike.imgUrl" />
         </div>

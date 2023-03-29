@@ -47,6 +47,21 @@ export default defineStore('rentStore', {
         });
       });
     },
+    hotBikes({ bikes }) {
+      // sort 有改到所有相關的陣列，bikes、searchBikes
+      return bikes.sort((a, b) => {
+        if (a.rank && b.rank) {
+          return a.rank - b.rank;
+        }
+        if (a.rank) {
+          return -1;
+        }
+        if (b.rank) {
+          return 1;
+        }
+        return 0;
+      });
+    },
   },
   actions: {
     getBikes() {

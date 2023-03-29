@@ -178,6 +178,7 @@ export default {
           const data = res.map((item) => item.data);
           // 將 data 的 item 解構賦值為新的物件變數
           const [top1Data, top2Data, top3Data] = data;
+          console.log(top1Data);
 
           /* 
           把變數的特定屬性存入已定義的空物件中，這些物件不能直接作為渲染，
@@ -186,6 +187,7 @@ export default {
           `Avoid app logic that relies on enumerating keys on a component instance. The keys will be empty in production mode to avoid performance overhead.`
           */
           this.preTop1 = {
+            motorcycleId: top1Data.id,
             model: top1Data.model,
             horsepower: Number(
               Number(top1Data.horsepower.split('p')[0]).toFixed()
@@ -195,6 +197,7 @@ export default {
             displacement: Number(top1Data.displacement),
           };
           this.preTop2 = {
+            motorcycleId: top2Data.id,
             model: top2Data.model,
             horsepower: Number(
               Number(top2Data.horsepower.split('p')[0]).toFixed()
@@ -204,6 +207,7 @@ export default {
             displacement: Number(top2Data.displacement),
           };
           this.preTop3 = {
+            motorcycleId: top3Data.id,
             model: top3Data.model,
             horsepower: Number(
               Number(top3Data.horsepower.split('p')[0]).toFixed()

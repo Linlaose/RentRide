@@ -4,7 +4,7 @@ import RentStore from '@/stores/RentStore';
 
 export default {
   computed: {
-    ...mapState(RentStore, ['bikes', 'searchBikes']),
+    ...mapState(RentStore, ['bikes', 'searchBikes', 'hotBikes']),
   },
   methods: {
     ...mapActions(RentStore, ['getBikes', 'checkBike']),
