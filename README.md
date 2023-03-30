@@ -8,6 +8,12 @@
 
 https://linlaose.github.io/RentRide/#/
 
+已存在的 Demo 帳號密碼：
+
+帳號: a123@gmail.com
+
+密碼: 1qaz2wsx
+
 ## 簡介
 
 重機是本人感興趣的主題，正好作為 Vue3 前端技術練習，其主要功能如下：
