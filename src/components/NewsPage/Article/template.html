@@ -1,17 +1,19 @@
-<section class="container my-10 lg:mb-20 lg:mt-0">
-  <span class="font-sans-tc block text-sm text-[#808080] lg:mt-6"
-    >{{ article.created_at }}
-    <span v-for="tag in article.tags" class="inline-block">[{{tag}}]</span>
-  </span>
-  <p class="mt-6 text-2xl">{{article.description}}</p>
-  <img class="mt-4 lg:mt-8" :src="article.imgUrl" alt="" />
-  <p class="font-sans-tc mt-4 text-justify text-base lg:mt-8">
-    {{article.content}}
-  </p>
-  <img
-    class="mt-4 lg:mt-8"
-    v-for="image in article.images"
-    :src="image"
-    alt=""
-  />
+<section class="container my-10 grid-cols-12 lg:mb-20 lg:mt-0 lg:grid">
+  <div class="lg:col-span-8 lg:col-start-3">
+    <span class="font-sans-tc block text-sm text-[#808080] lg:mt-6"
+      >{{ article.created_at }}
+      <span v-for="tag in article.tags" class="inline-block">[{{tag}}]</span>
+    </span>
+    <p class="mt-6 text-2xl">{{article.description}}</p>
+    <img class="mt-4 lg:mt-8" :src="article.imgUrl" alt="" />
+    <p class="font-sans-tc mt-4 text-justify text-base lg:mt-8">
+      {{article.content}}
+    </p>
+    <img
+      class="mt-4 lg:mt-8"
+      v-for="image in article.images"
+      :src="image"
+      alt=""
+    />
+  </div>
 </section>

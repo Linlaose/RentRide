@@ -26,12 +26,10 @@
           class="group relative z-10 flex h-full flex-col bg-light-white"
           type="depth"
         >
-          <div class="h-1/2">
-            <img class="w-full" :src="newsItem.imgUrl" />
-          </div>
-          <div class="card-body flex h-1/2 flex-col">
+          <img class="aspect-[299/186] w-full" :src="newsItem.imgUrl" />
+          <div class="card-body flex flex-col">
             <h5>{{ newsItem.title }}</h5>
-            <p class="pt-3">{{ newsItem.description }}</p>
+            <p class="lg:line-clamp-3 pt-3">{{ newsItem.description }}</p>
             <div class="mt-auto text-end">
               <button type="button" class="inline-block w-36">
                 <a

@@ -1,12 +1,11 @@
 <section class="container relative mt-6 mb-10 lg:mb-20 lg:mt-0">
   <div v-if="similarBikes.length>0">
-    <h5 class="absolute">相似的車型還有...</h5>
+    <h5 class="absolute text-base xs:text-2xl">相似的車型還有...</h5>
 
     <swiper
       :modules="modules"
       v-bind="swiperOptions"
       data-swiper="similarSwiper"
-      class="h-[550px] lg:h-[800px]"
     >
       <swiper-slide v-for="bike in similarBikes" :key="bike.id">
         <div
@@ -39,7 +38,7 @@
             </div>
           </ul>
           <div
-            class="font-sans-tc mt-3 grid grid-cols-2 gap-2 border-t border-light-gray p-3 text-smoke-dark md:text-center lg:mt-0 lg:gap-7 lg:p-8 lg:text-left"
+            class="font-sans-tc mt-3 grid aspect-[342/141] grid-cols-2 gap-2 break-all border-t border-light-gray p-3 text-smoke-dark xs:break-normal md:aspect-[309/241] md:text-center lg:mt-0 lg:gap-7 lg:p-8 lg:text-left xl:aspect-[416/201]"
           >
             <div class="text-sm text-dark-gray">
               <p>引擎</p>
