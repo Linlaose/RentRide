@@ -23,7 +23,7 @@ export default {
           this.favorites = data;
         })
         .catch((err) => {
-          console.log(err);
+          alert(err);
         });
     },
     delFavorite(id) {
@@ -43,7 +43,7 @@ export default {
           });
         })
         .catch((err) => {
-          alert(err);
+          console.log(err);
         });
     },
   },
