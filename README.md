@@ -46,7 +46,7 @@ https://linlaose.github.io/RentRide/#/
 
 - 模擬資料庫:
   - json-server-auth
-  - vercel
+  - Vercel -> Render
 
 ## 使用 Plugin
 
